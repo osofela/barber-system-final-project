@@ -1,2 +1,3 @@
 /app/config
+/vendor
 /bootstrap/compiled.php
