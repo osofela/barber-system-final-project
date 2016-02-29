@@ -8,9 +8,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
-
-	//New Comment
-
+	
 	/**
 	 * The database table used by the model.
 	 *
