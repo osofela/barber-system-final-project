@@ -29,7 +29,7 @@ class UsersController extends ApiController
         // 3. Linking db structure to the API output
         // 4. No way to signal headers/response codes
 
-        $limit =Input::get('limit') ?: 3;
+        $limit =Input::get('limit') ?: 4;
 
         $users= User::paginate($limit);
 

@@ -21,6 +21,10 @@ Route::group(['prefix' => 'api/v1'],function()
 
 	Route::resource('users','UsersController');
 
+	Route::resource('appointments', 'AppointmentsController',['only' => ['index', 'show']]);
+
+	Route::get('users/{id}/appointments','AppointmentsController@index');
+
 });
 
 ///**

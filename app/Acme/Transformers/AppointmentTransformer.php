@@ -9,14 +9,14 @@
 namespace Acme\Transformers;
 
 
-class AppointmentTransformer
+class AppointmentTransformer extends Transformer
 {
     public function transform($appointment)
     {
         return [
 
             'user_id' => $appointment['user_id'],
-            'barber_id' => $appointment['barber_type'],
+            'barber_id' => $appointment['barber_id'],
             'haircut_type' => $appointment['haircut_type'],
             'music_choice' => $appointment['music_choice'],
             'drink_choice' => $appointment['drink_choice'],
