@@ -18,6 +18,8 @@ class UsersController extends ApiController
     function __construct(UserTransformer $userTransformer)
     {
         $this->userTransformer = $userTransformer;
+
+        $this->beforeFilter('auth.basic', ['on' => 'post']);
     }
 
     public function index()

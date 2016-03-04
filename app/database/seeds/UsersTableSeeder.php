@@ -37,5 +37,29 @@ class UsersTableSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
         ]);
+
+        User::create([
+            'first_name' => 'Ian',
+            'last_name' => 'O Brien',
+            'address' => '141 Hillsdale Syndey',
+            'role' => 'Client',
+            'telephone' => '0877777775',
+            'email' => 'ian@gmail.com',
+            'password' => Hash::make('ian'),
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+        ]);
+
+        User::create([
+            'first_name' => 'John',
+            'last_name' => 'O Brien',
+            'address' => '141 Deerpark Cork',
+            'role' => 'Client',
+            'telephone' => '0872789117',
+            'email' => 'john@gmail.com',
+            'password' => Hash::make('john'),
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+        ]);
     }
 }
