@@ -63,7 +63,17 @@ class AppointmentsController extends ApiController {
      */
     public function show($id)
     {
-        //
+        $appointment = Appointment::find($id);
+
+        if (! $appointment)
+        {
+            return $this->respondNotFound('Appointment does not exist.');
+        }
+
+        return $this->respond([
+
+            'data' => $this->appointmentTransformer->transform($appointment)
+        ]);
     }
 
 

@@ -40,5 +40,31 @@ class AppointmentsTableSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
         ]);
 
+        Appointment::create([
+            'user_id' => '4',
+            'barber_id' => '1',
+            'haircut_type' => 'Wet Cut & Shave',
+            'music_choice' => 'J Cole',
+            'drink_choice' => 'Coffee',
+            'date' => \Carbon\Carbon::now(),
+            'start_time' => \Carbon\Carbon::now()->toDateTimeString(),
+            'end_time' => \Carbon\Carbon::now()->toDateTimeString(),
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+        ]);
+
+        Appointment::create([
+            'user_id' => '3',
+            'barber_id' => '1',
+            'haircut_type' => 'Wet Cut & Shave',
+            'music_choice' => 'J Cole',
+            'drink_choice' => 'Coffee',
+            'date' => \Carbon\Carbon::now(),
+            'start_time' => \Carbon\Carbon::now()->toDateTimeString(),
+            'end_time' => \Carbon\Carbon::now()->toDateTimeString(),
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+        ]);
+
     }
 }

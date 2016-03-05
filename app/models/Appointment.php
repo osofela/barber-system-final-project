@@ -37,12 +37,12 @@ class Appointment extends Eloquent
     ];
 
     /**
-     * Appointment belongs to a  User.
+     * Appointment belongs to a User.
      */
 
     public function user()
     {
-        return $this->belongsTo('User','user_id');
+            return $this->belongsTo('User','user_id');
     }
 
 }
