@@ -9,7 +9,8 @@ class AppointmentsController extends ApiController {
 
     /**
      * TagsController constructor.
-     * @param $tagTransformer
+     * @param AppointmentTransformer $appointmentTransformer
+     * @internal param $tagTransformer
      */
 
     public function __construct(AppointmentTransformer $appointmentTransformer)
@@ -61,6 +62,7 @@ class AppointmentsController extends ApiController {
      * @param  int  $id
      * @return Response
      */
+
     public function show($id)
     {
         $appointment = Appointment::find($id);
@@ -118,7 +120,7 @@ class AppointmentsController extends ApiController {
      */
     private function getAppointments($userId)
     {
-        return $userId ? User::findOrFail($userId)->appointments : Appointment::all();
+        return $userId ? User::find($userId)->appointments : Appointment::all();
     }
 
 
