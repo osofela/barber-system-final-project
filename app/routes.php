@@ -16,8 +16,42 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::group(['prefix' => 'api/v1'],function()
+
+// route to show the login form
+Route::get('auth/login', array('uses' => 'AuthController@showLogin'));
+
+// route to process the form
+Route::post('auth/login', array('uses' => 'AuthController@doLogin'));
+
+Route::get('auth/logout', array('uses' => 'AuthController@doLogout'));
+
+Route::get('auth/register', array('uses' => 'AuthController@showRegister'));
+
+Route::post('auth/register', array('uses' => 'AuthController@doRegister'));
+
+
+Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 {
+
+	Route::get('admin', function ()
+	{
+		return View::make('admin/admin');
+	});
+
+	Route::get('barber', function ()
+	{
+		return View::make('barber/barber');
+	});
+
+	Route::get('intern', function ()
+	{
+		return View::make('intern/intern');
+	});
+
+	Route::get('client', function ()
+	{
+		return View::make('client/client');
+	});
 
 	Route::resource('users','UsersController');
 
