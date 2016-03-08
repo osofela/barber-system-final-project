@@ -29,6 +29,8 @@ Route::get('auth/register', array('uses' => 'AuthController@showRegister'));
 
 Route::post('auth/register', array('uses' => 'AuthController@doRegister'));
 
+Route::get('auth/thanks', array('uses' => 'AuthController@showThanks'));
+
 
 Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 {

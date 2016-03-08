@@ -1,0 +1,1 @@
+@extends('layouts.app')@section('title', 'Thanks for Registering')<br><br>@section('content')    <div class="jumbotron">        <h1>Thanks for registering</h1>        <p>Click the button below to go to the login page.</p>        <a href="/auth/login" class="btn btn-primary">Login</a>    </div>@stop

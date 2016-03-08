@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Request;
  */
 class AuthController extends BaseController
 {
-    protected $redirectPath = '/dashboard';
 
     public function showLogin()
     {
@@ -119,6 +118,11 @@ class AuthController extends BaseController
         //return 'User record successfully created with id ' . $user->id;
 
 
-        return Redirect::to('api/v1/client');
+        return Redirect::to('auth.thanks');
+    }
+
+    public function showThanks()
+    {
+        return View::make('auth.thanks');
     }
 }

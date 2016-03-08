@@ -14,6 +14,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap.min.css') }}">
+
     <style>
         body {
             font-family: 'Lato';
@@ -26,7 +27,9 @@
 </head>
 <body>
 
-@yield('content')
+<div class="container">
+    @yield('content')
+</div>
 
 </body>
 </html>
