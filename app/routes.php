@@ -21,13 +21,13 @@ Route::get('/', function()
 Route::get('auth/login', array('uses' => 'AuthController@showLogin'));
 
 // route to process the form
-Route::post('auth/login', array('uses' => 'AuthController@doLogin'));
+Route::post('auth/login', array('before' => 'csrf','uses' => 'AuthController@doLogin'));
 
 Route::get('auth/logout', array('uses' => 'AuthController@doLogout'));
 
 Route::get('auth/register', array('uses' => 'AuthController@showRegister'));
 
-Route::post('auth/register', array('uses' => 'AuthController@doRegister'));
+Route::post('auth/register', array('before' => 'csrf','uses' => 'AuthController@doRegister'));
 
 Route::get('auth/thanks', array('uses' => 'AuthController@showThanks'));
 

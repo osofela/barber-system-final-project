@@ -7,7 +7,6 @@
         <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <h1>Login</h1>
-
                     <hr>
 
                     {{ HTML::image('Suzi-K-Logo.png', 'Barber Logo', array( 'width' => 120, 'height' => 120 )) }}
@@ -32,7 +31,10 @@
                         <div class="form-group">
                             <button type="submit" class="btn btn-default">Login</button>
                         </div>
+
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                     </form>
+                    @include('errors')
 
                     <a href="/auth/register">Register</a>
                 </div>

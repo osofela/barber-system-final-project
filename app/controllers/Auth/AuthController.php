@@ -81,7 +81,7 @@ class AuthController extends BaseController
                 // validation not successful, send back to form
 
                 return Redirect::to('auth/login')
-                    ->withErrors($userdata);
+                    ->withErrors("Invalid username or password.");
 
             }
 
@@ -118,7 +118,7 @@ class AuthController extends BaseController
         //return 'User record successfully created with id ' . $user->id;
 
 
-        return Redirect::to('auth.thanks');
+        return Redirect::to('auth/thanks');
     }
 
     public function showThanks()
