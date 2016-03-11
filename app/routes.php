@@ -35,25 +35,25 @@ Route::get('auth/thanks', array('uses' => 'AuthController@showThanks'));
 Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 {
 
-	Route::get('admin', function ()
+	Route::get('admin',array('before' => 'admin', function ()
 	{
-		return View::make('admin/admin');
-	});
+		return View::make('admin/index');
+	}));
 
-	Route::get('barber', function ()
+	Route::get('barber',array('before' => 'barber', function ()
 	{
 		return View::make('barber/barber');
-	});
+	}));
 
-	Route::get('intern', function ()
+	Route::get('intern',array('before' => 'intern', function ()
 	{
 		return View::make('intern/intern');
-	});
+	}));
 
-	Route::get('client', function ()
+	Route::get('client',array('before' => 'client', function ()
 	{
 		return View::make('client/client');
-	});
+	}));
 
 	Route::resource('users','UsersController');
 

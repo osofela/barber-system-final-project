@@ -54,6 +54,44 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('admin', function()
+{
+	if(Auth::user()->role != "Admin")
+	{
+		return Redirect::to(strtolower('api/v1/' . Auth::user()->role));
+	}
+});
+
+Route::filter('barber', function()
+{
+	$userRole = Auth::user()->role;
+
+	if(Auth::user()->role != "Barber")
+	{
+		return Redirect::to(strtolower('api/v1/' . Auth::user()->role));
+	}
+});
+
+Route::filter('intern', function()
+{
+	$userRole = Auth::user()->role;
+
+	if(Auth::user()->role != "Intern")
+	{
+		return Redirect::to(strtolower('api/v1/' . Auth::user()->role));
+	}
+});
+
+Route::filter('client', function()
+{
+	$userRole = Auth::user()->role;
+
+	if(Auth::user()->role != "Client")
+	{
+		return Redirect::to(strtolower('api/v1/' . Auth::user()->role));
+	}
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter

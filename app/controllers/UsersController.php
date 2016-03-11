@@ -19,26 +19,30 @@ class UsersController extends ApiController
     {
         $this->userTransformer = $userTransformer;
 
-        $this->beforeFilter('auth.basic', ['on' => 'post']);
+        $this->beforeFilter('auth', ['on' => 'post']);
     }
 
-    public function index()
+    public function index($id = null)
     {
-        // 1. All is bad
-        // 2. No way to attach meta data
-        // 3. Linking db structure to the API output
-        // 4. No way to signal headers/response codes
 
-        $limit =Input::get('limit') ?: 4;
+//        $limit =Input::get('limit') ?: 6;
+//
+//        $users= User::paginate($limit);
+//
+//        return $this->respondWithPagination($users, [
+//
+//            'data' => $this->userTransformer->transformCollection($users->all()),
+//        ]);
 
-        $users= User::paginate($limit);
+        if ($id == null)
+        {
+            return User::where('role' ,'!=', 'Client')->get();
+        }
+        else
+        {
+            return $this->show($id);
+        }
 
-        return $this->respondWithPagination($users, [
-
-            'data' => $this->userTransformer->transformCollection($users->all()),
-        ]);
-
-        //return Lesson::all(); // Really Bad practice
     }
 
     /**
@@ -72,17 +76,17 @@ class UsersController extends ApiController
      */
     public function show($id)
     {
-        $user = User::find($id);
+        return User::find($id);
 
-        if (! $user)
-        {
-            return $this->respondNotFound('User does not exist.');
-        }
-
-        return $this->respond([
-
-            'data' => $this->userTransformer->transform($user)
-        ]);
+//        if (! $user)
+//        {
+//            return $this->respondNotFound('User does not exist.');
+//        }
+//
+//        return $this->respond([
+//
+//            'data' => $this->userTransformer->transform($user)
+//        ]);
 
     }
 
