@@ -26,7 +26,7 @@ app.controller('usersController', function($scope, $http, API_URL) {
                         console.log(response);
                         $scope.user = response;
                         console.log(id);
-                        $('#myModal').modal('show');
+                        $('#myEditModal').modal('show');
 
                     });
                 break;
