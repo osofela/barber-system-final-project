@@ -52,19 +52,32 @@ class UsersController extends ApiController
      */
     public function store()
     {
-        if( ! Input::get('first_name') or ! Input::get('last_name'))
-        {
-            // return some kind of response
-            // 422
-            // provide a message
+//        if( ! Input::get('first_name') or ! Input::get('last_name'))
+//        {
+//            // return some kind of response
+//            // 422
+//            // provide a message
+//
+//            return $this->setStatusCode(422)
+//                ->respondWithError('Parameters failed validation for a user.');
+//        }
+//
+//        User::create(Input::all());
+//
+//        return $this->respondCreated('User successfully created.');
 
-            return $this->setStatusCode(422)
-                ->respondWithError('Parameters failed validation for a user.');
-        }
+        $user = new User;
 
-        User::create(Input::all());
+        $user->first_name = Input::get('first_name');
+        $user->last_name = Input::get('last_name');
+        $user->email = Input::get('email');
+        $user->address = Input::get('address');
+        $user->telephone = Input::get('telephone');
+        $user->role = Input::get('role');
+        $user->password = Hash::make(Input::get('password'));
+        $user->save();
 
-        return $this->respondCreated('User successfully created.');
+
     }
 
 
@@ -111,7 +124,17 @@ class UsersController extends ApiController
      */
     public function update($id)
     {
-        //
+        $user = User::findOrfail($id);
+
+        $user->first_name = Input::get('first_name');
+        $user->last_name = Input::get('last_name');
+        $user->email = Input::get('email');
+        $user->address = Input::get('address');
+        $user->telephone = Input::get('telephone');
+        $user->role = Input::get('role');
+        $user->save();
+
+        //return "Sucess updating user #" . $employee->id;
     }
 
 
@@ -123,6 +146,8 @@ class UsersController extends ApiController
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
     }
 }

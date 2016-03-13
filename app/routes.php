@@ -55,7 +55,11 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 		return View::make('client/client');
 	}));
 
+	Route::post('users/{id}', 'UsersController@update');
+
 	Route::resource('users','UsersController');
+
+
 
 	Route::resource('appointments', 'AppointmentsController');
 

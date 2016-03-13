@@ -5,6 +5,7 @@ app.controller('usersController', function($scope, $http, API_URL) {
             $scope.users = response;
         });
 
+
     //show modal form
     $scope.toggle = function(modalstate, id) {
         $scope.modalstate = modalstate;
@@ -12,6 +13,10 @@ app.controller('usersController', function($scope, $http, API_URL) {
         switch (modalstate) {
             case 'add':
                 $scope.form_title = "Add New Barber";
+                $scope.user = null;
+                console.log(id);
+                $('#myAddModal').modal('show');
+
                 break;
             case 'edit':
                 $scope.form_title = "Barber Detail";
@@ -20,13 +25,15 @@ app.controller('usersController', function($scope, $http, API_URL) {
                     .success(function(response) {
                         console.log(response);
                         $scope.user = response;
+                        console.log(id);
+                        $('#myModal').modal('show');
+
                     });
                 break;
             default:
                 break;
+
         }
-        console.log(id);
-        $('#myModal').modal('show');
     }
 
     //save new record / update existing record
@@ -41,7 +48,7 @@ app.controller('usersController', function($scope, $http, API_URL) {
         $http({
             method: 'POST',
             url: url,
-            data: $.param($scope.employee),
+            data: $.param($scope.user),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(response) {
             console.log(response);
