@@ -43,7 +43,8 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('auth/login');
+			return Redirect::guest('auth/login')
+				->withErrors("Please log in to continue.");
 		}
 	}
 });

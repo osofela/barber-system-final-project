@@ -12,16 +12,17 @@
                     {{ HTML::image('Suzi-K-Logo.png', 'Barber Logo', array( 'width' => 120, 'height' => 120 )) }}
                     <br>
                     <br>
+                    @include('errors')
 
                     <form method="POST" action="/auth/login">
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" name="email" class="form-control" value="{{ Input::old('email') }}" required>
+                            <input type="email" name="email" placeholder="example@gmail.com" class="form-control" value="{{ Input::old('email') }}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="password">Password:</label>
-                            <input type="password" name="password" id="password" class="form-control" required>
+                            <input type="password" name="password" placeholder="Password" id="password" class="form-control" required>
                         </div>
 
                         <div class="form-group">
@@ -34,7 +35,7 @@
 
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                     </form>
-                    @include('errors')
+
 
                     <a href="/auth/register">Register</a>
                 </div>

@@ -13,7 +13,7 @@
                 {{ HTML::image('Suzi-K-Logo.png', 'Barber Logo', array( 'width' => 120, 'height' => 120 )) }}
                 <br>
                 <br>
-
+                @include('errors')
 
                 <form method="POST" action="/auth/register">
                     <div class="form-group">
@@ -43,12 +43,12 @@
 
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" name="password" id="password" class="form-control" required>
+                        <input type="password" name="password" placeholder="Password" id="password" class="form-control" required>
                     </div>
 
                     <div class="form-group">
                         <label for="password_confirmation">Confirm Password:</label>
-                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+                        <input type="password" name="password_confirmation" placeholder="Confirm Password" id="password_confirmation" class="form-control" required>
                     </div>
 
                     <div class="form-group">
@@ -57,7 +57,6 @@
 
                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 </form>
-                @include('errors')
             </div>
 
         </div>

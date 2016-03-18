@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Request;
 class AuthController extends BaseController
 {
 
+
+
     public function showLogin()
     {
         return View::make('auth.login');
@@ -23,7 +25,7 @@ class AuthController extends BaseController
         // validate the info, create rules for the inputs
         $rules = array(
             'email'    => 'required|email', // make sure the email is an actual email
-            'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
+            'password' => 'required|alphaNum' // password can only be alphanumeric and has to be greater than 3 characters
         );
 
         // run the validation rules on the inputs from the form
@@ -105,20 +107,45 @@ class AuthController extends BaseController
      */
     public function doRegister()
     {
-        $user = new User;
+        // validate the info, create rules for the inputs
+        $rules = array(
 
-        $user->first_name = Input::get('first_name');
-        $user->last_name = Input::get('last_name');
-        $user->email = Input::get('email');
-        $user->address = Input::get('address');
-        $user->telephone = Input::get('telephone');
-        $user->password = Hash::make(Input::get('password'));
-        $user->save();
+            'first_name'    => 'required',
+            'last_name'    => 'required',
+            'email'    => 'required|email|unique:users', // make sure the email is an actual email
+            'password' => 'required|alphaNum|min:3|confirmed', // password can only be alphanumeric and has to be greater than 3 characters
+            'password_confirmation' => 'required|alphaNum|min:3'
+        );
 
-        //return 'User record successfully created with id ' . $user->id;
+        // run the validation rules on the inputs from the form
+        $validator = Validator::make(Input::all(), $rules);
+
+        // if the validator fails, redirect back to the form
+        if ($validator->fails())
+        {
+            return Redirect::to('auth/register')
+                ->withErrors($validator) // send back all errors to the login form
+                ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+        }
+        else
+        {
+
+            $user = new User;
+
+            $user->first_name = Input::get('first_name');
+            $user->last_name = Input::get('last_name');
+            $user->email = Input::get('email');
+            $user->address = Input::get('address');
+            $user->telephone = Input::get('telephone');
+            $user->password = Hash::make(Input::get('password'));
+            $user->save();
+
+            //return 'User record successfully created with id ' . $user->id;
+
+            return Redirect::to('auth/thanks');
+        }
 
 
-        return Redirect::to('auth/thanks');
     }
 
     public function showThanks()
