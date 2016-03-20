@@ -138,7 +138,7 @@ class AppointmentsController extends ApiController {
         {
 
             $endTime->addMinutes($timeSlot);
-            array_push($times, array($startTime->toTimeString() ,$endTime->toTimeString()));
+            array_push($times, array("start_time" => $startTime->toTimeString() ,"end_time" => $endTime->toTimeString()));
             $startTime->addMinutes($timeSlot);
         }
 
