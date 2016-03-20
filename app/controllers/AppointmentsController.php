@@ -1,6 +1,7 @@
 <?php
 
 use Acme\Transformers\AppointmentTransformer;
+use Carbon\Carbon;
 
 class AppointmentsController extends ApiController {
 
@@ -16,6 +17,8 @@ class AppointmentsController extends ApiController {
     public function __construct(AppointmentTransformer $appointmentTransformer)
     {
         $this->appointmentTransformer = $appointmentTransformer;
+
+        $this->beforeFilter('auth', ['on' => 'post']);
     }
 
     /**
@@ -121,6 +124,25 @@ class AppointmentsController extends ApiController {
     private function getAppointments($userId)
     {
         return $userId ? User::find($userId)->appointments : Appointment::all();
+    }
+
+    public function getTimes($timeSlot = 40)
+    {
+        $startTime = Carbon::create(null, null, null, 9);
+        $endTime = Carbon::create(null, null, null, 9);
+
+
+        $times = array();
+
+        while($startTime->toTimeString() != "17:00:00")
+        {
+
+            $endTime->addMinutes($timeSlot);
+            array_push($times, array($startTime->toTimeString() ,$endTime->toTimeString()));
+            $startTime->addMinutes($timeSlot);
+        }
+
+        return $times;
     }
 
 

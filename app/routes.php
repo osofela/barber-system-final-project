@@ -63,6 +63,8 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 
 	Route::resource('appointments', 'AppointmentsController');
 
+	Route::get('times/{timeslot?}','AppointmentsController@getTimes');
+
 	Route::get('users/{id}/appointments','AppointmentsController@index');
 
 });
