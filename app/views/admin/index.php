@@ -7,11 +7,17 @@
 
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?= asset('assets/css/bootstrap.css') ?>" rel="stylesheet">
 </head>
 <body>
 
 <h2>Users Database</h2>
 <div  ng-controller="usersController">
+
+    <div class="col-md-3">
+        <input ng-model="searchText" class="form-control" type="search" placeholder="Search">
+        <span class="glyphicon glyphicon-search"></span>
+    </div>
 
     <!-- Table-to-load-the-data Part -->
     <table class="table">
@@ -28,7 +34,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="user in users">
+        <tr ng-repeat="user in users | filter:searchText"">
             <td>{{ user.user_id }}</td>
             <td>{{ user.first_name }}</td>
             <td>{{ user.last_name }}</td>
