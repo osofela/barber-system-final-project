@@ -5,7 +5,6 @@ app.controller('usersController', function($scope, $http, API_URL) {
             $scope.users = response;
         });
 
-
     //show modal form
     $scope.toggle = function(modalstate, id) {
         $scope.modalstate = modalstate;
@@ -19,7 +18,7 @@ app.controller('usersController', function($scope, $http, API_URL) {
 
                 break;
             case 'edit':
-                $scope.form_title = "Barber Detail";
+                $scope.form_title = "Barber Details";
                 $scope.id = id;
                 $http.get(API_URL + 'users/' + id)
                     .success(function(response) {

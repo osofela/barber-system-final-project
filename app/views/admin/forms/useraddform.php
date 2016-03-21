@@ -43,8 +43,12 @@
                         <div class="col-sm-9">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" value="{{email}}"
                                    ng-model="user.email" ng-required="true">
-                                        <span class="help-inline"
-                                              ng-show="frmAddUsers.email.$invalid && frmAddUsers.email.$touched">Valid Email field is required</span>
+                            <span class="help-inline" ng-show="frmAddUsers.email.$invalid && frmAddUsers.email.$touched">
+                                Valid Email field is required
+                            </span>
+                            <span class="errorMessage" ng-show="frmAddUsers.email.$dirty && frmAddUsers.email.$error.unique">
+                                Email is taken
+                            </span>
                         </div>
                     </div>
 
@@ -78,7 +82,7 @@
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{password}}"
                                    ng-model="user.password" ng-minlength="4" ng-maxlength="20" ng-required="true">
                                     <span class="help-inline"
-                                          ng-show="frmAddUsers.password.$invalid && frmAddUsers.password.$touched">Password field is required</span>
+                                          ng-show="frmAddUsers.password.$invalid && frmAddUsers.password.$touched">Password field is required and must be longer than 3 characters</span>
                         </div>
                     </div>
 
@@ -86,16 +90,22 @@
                         <label for="inputEmail3" class="col-sm-3 control-label">Check Password</label>
                         <div class="col-sm-9">
                             <input type="password" class="form-control" id="check_password" name="check_password" placeholder="Check Password" value="{{check_password}}"
-                                   ng-model="check_password" ng-required="true">
-                                    <span class="help-inline"
-                                          ng-show="frmAddUsers.check_password.$invalid && frmAddUsers.check_password.$touched">Check Password field is required</span>
+                                   ng-model="user.check_password" data-password-verify="user.password" ng-required="true">
+                            <span class="help-inline"
+                                  ng-show="frmAddUsers.check_password.$error.required && frmAddUsers.check_password.$touched">
+                                Check Password field is required
+                            </span>
+                            <span class="help-inline"
+                                  ng-show="frmAddUsers.check_password.$error.passwordVerify">
+                                Passwords do not match
+                            </span>
                         </div>
                     </div>
 
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, user.user_id)" ng-disabled="frmUsers.$invalid">Save changes</button>
+                <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, user.user_id)" ng-disabled="frmAddUsers.$invalid">Save changes</button>
             </div>
         </div>
     </div>
