@@ -6,7 +6,7 @@
                 <h4 class="modal-title" id="myAddModalLabel">{{form_title}}</h4>
             </div>
             <div class="modal-body">
-                <form name="frmAddUsers" class="form-horizontal" novalidate="">
+                <form name="frmAppointments" class="form-horizontal" novalidate="">
 
                     <div class="form-group error">
                         <label for="inputEmail3" class="col-sm-3 control-label">First Name</label>
@@ -66,10 +66,10 @@
                         <label for="inputEmail3" class="col-sm-3 control-label">Role</label>
                         <div class="col-sm-9">
                             <select ng-model="user.role" class="form-control" id="role" name="role" placeholder="Role" value="{{role}}"
-                                 ng-required="true">
-                            <option value="Admin">Admin</option>
-                            <option value="Barber">Barber</option>
-                            <option value="Intern">Intern</option>
+                                    ng-required="true">
+                                <option value="Admin">Admin</option>
+                                <option value="Barber">Barber</option>
+                                <option value="Intern">Intern</option>
                             </select>
                                     <span class="help-inline"
                                           ng-show="frmAddUsers.role.$invalid && frmAddUsers.role.$touched">Role field is required</span>

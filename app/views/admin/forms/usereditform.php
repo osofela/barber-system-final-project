@@ -28,8 +28,6 @@
                         </div>
                     </div>
 
-
-
                     <div class="form-group error">
                         <label for="inputEmail3" class="col-sm-3 control-label">Address</label>
                         <div class="col-sm-9">
@@ -77,7 +75,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, user.user_id)" ng-disabled="frmUsers.$invalid">Save changes</button>
+                <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, user.user_id)" ng-disabled="frmUsers.$invalid">Save</button>
             </div>
         </div>
     </div>

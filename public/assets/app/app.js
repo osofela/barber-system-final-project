@@ -32,5 +32,3 @@ app.directive("passwordVerify", function() {
         }
     };
 });
-
-function Ctrl($scope) {}

@@ -30,10 +30,12 @@ class AppointmentsController extends ApiController {
     {
         $appointments = $this->getAppointments($appointmentId);
 
-        return $this->respond([
+        return $appointments;
 
-            'data' => $this->appointmentTransformer->transformCollection($appointments->all())
-        ]);
+//        return $this->respond([
+//
+//            'data' => $this->appointmentTransformer->transformCollection($appointments->all())
+//        ]);
     }
 
 

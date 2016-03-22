@@ -52,13 +52,17 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 
 	Route::get('client',array('before' => 'client', function ()
 	{
-		return View::make('client/client');
+		return View::make('client/index');
 	}));
 
 	Route::post('users/{id}', 'UsersController@update');
 
 	Route::resource('users','UsersController');
 
+	Route::get('admin/appointments',function()
+	{
+		return View::make('admin/appointments');
+	});
 
 
 	Route::resource('appointments', 'AppointmentsController');

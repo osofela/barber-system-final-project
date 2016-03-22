@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-US" ng-app="userRecords">
+<html lang="en-US" ng-app="appointmentRecords">
 <head>
-    <title>Admin Page</title>
-    <h1>Admin Page</h1>
+    <title>Client Page</title>
+    <h1>ClientPage</h1>
     <a href="/auth/logout">Logout</a>
-    <a href="admin/appointments">Appointments</a>
 
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -13,7 +12,7 @@
 <body>
 
 <h2>Users Database</h2>
-<div  ng-controller="usersController">
+<div  ng-controller="appointmentsController">
 
     <div class="col-md-3">
         <input ng-model="searchText" class="form-control" type="search" placeholder="Search">
@@ -24,9 +23,9 @@
     <table class="table">
         <thead>
         <tr>
-            <th>User ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Appointment Id</th>
+            <th>User Id</th>
+            <th>Barber Id</th>
             <th>Address</th>
             <th>Email</th>
             <th>Telephone</th>
@@ -35,18 +34,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="user in users | filter:searchText"">
-            <td>{{ user.user_id }}</td>
-            <td>{{ user.first_name }}</td>
-            <td>{{ user.last_name }}</td>
-            <td>{{ user.address }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.telephone }}</td>
-            <td>{{ user.role }}</td>
-            <td>
-                <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit', user.user_id)">Edit</button>
-                <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(user.user_id)">Delete</button>
-            </td>
+        <tr ng-repeat="appointment in appointments | filter:searchText"">
+        <td>{{ appointment.appointment_id }}</td>
+        <td>{{ appointment.user_id }}</td>
+        <td>{{ appointment.barber_id }}</td>
+        <td>{{ appointment.haircut_type }}</td>
+        <td>{{ appointment.music_choice  }}</td>
+        <td>{{ appointment.drink_choice }}</td>
+        <td>{{ appointment.date }}</td>
+        <td>{{ appointment.start_time }}</td>
+        <td>{{ appointment.end_time }}</td>
+        <td>
+            <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit', appointment.appointment_id)">Edit</button>
+            <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(appointment.appointment_id)">Delete</button>
+        </td>
         </tr>
         </tbody>
     </table>
