@@ -4,7 +4,7 @@
     <title>Admin Page</title>
     <h1>Admin Page</h1>
     <a href="/auth/logout">Logout</a>
-    <a href="/users">Users</a>
+    <a href="users">Users</a>
 
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -37,7 +37,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="appointment in appointments | filter:searchText" ng-init='barbers=find(appointment.barber_id)'>
+        <tr ng-repeat="appointment in appointments | filter:searchText">
         <td>{{ appointment.appointment_id }}</td>
         <td>{{ appointment.user_id }}</td>
         <td>{{ appointment.barber_id }}</td>

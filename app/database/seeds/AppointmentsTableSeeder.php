@@ -15,7 +15,7 @@ class AppointmentsTableSeeder extends Seeder
         DB::table('appointments')->delete();
 
         Appointment::create([
-            'user_id' => '3',
+            'user_id' => '4',
             'barber_id' => '1',
             'haircut_type' => 'Wet Cut',
             'music_choice' => 'Drake',
@@ -41,7 +41,7 @@ class AppointmentsTableSeeder extends Seeder
         ]);
 
         Appointment::create([
-            'user_id' => '4',
+            'user_id' => '5',
             'barber_id' => '1',
             'haircut_type' => 'Wet Cut & Shave',
             'music_choice' => 'J Cole',
@@ -54,7 +54,7 @@ class AppointmentsTableSeeder extends Seeder
         ]);
 
         Appointment::create([
-            'user_id' => '3',
+            'user_id' => '5',
             'barber_id' => '1',
             'haircut_type' => 'Wet Cut & Shave',
             'music_choice' => 'J Cole',

@@ -4,6 +4,11 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
         .success(function(response) {
             $scope.appointments = response;
         });
+    //retrieve appointments listing from API
+    $http.get(API_URL + "users")
+        .success(function(response) {
+            $scope.users = response;
+        });
 
 
     $scope.find = function(user_id){
@@ -15,7 +20,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
                 console.log(user_id);
             });
 
-    }
+    };
 
 
     //show modal form
@@ -46,7 +51,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
                 break;
 
         }
-    }
+    };
 
 
     $scope.save = function(modalstate, id) {
@@ -69,7 +74,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
             console.log(response);
             alert('This is embarassing. An error has occured. Please check the log for details');
         });
-    }
+    };
 
     //delete record
     $scope.confirmDelete = function(id) {

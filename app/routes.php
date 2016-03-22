@@ -21,11 +21,11 @@ Route::get('/', function()
 Route::get('auth/login', array('uses' => 'AuthController@showLogin'));
 
 // route to process the form
-Route::post('auth/login', array('before' => 'csrf','uses' => 'AuthController@doLogin'));
+Route::post('/auth/login', array('before' => 'csrf','uses' => 'AuthController@doLogin'));
 
-Route::get('auth/logout', array('uses' => 'AuthController@doLogout'));
+Route::get('/auth/logout', array('uses' => 'AuthController@doLogout'));
 
-Route::get('auth/register', array('uses' => 'AuthController@showRegister'));
+Route::get('/auth/register', array('uses' => 'AuthController@showRegister'));
 
 Route::post('auth/register', array('before' => 'csrf','uses' => 'AuthController@doRegister'));
 
@@ -35,10 +35,24 @@ Route::get('auth/thanks', array('uses' => 'AuthController@showThanks'));
 Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 {
 
-	Route::get('admin',array('before' => 'admin', function ()
-	{
-		return View::make('admin/index');
-	}));
+	Route::group(['prefix' => 'admin', 'before'=> 'admin'],function(){
+
+		Route::get('/',function()
+		{
+			return View::make('admin/admin');
+		});
+
+		Route::get('appointments',function()
+		{
+			return View::make('admin/appointments');
+		});
+
+		Route::get('users',function()
+		{
+			return View::make('admin/index');
+		});
+
+	});
 
 	Route::get('barber',array('before' => 'barber', function ()
 	{
@@ -58,13 +72,7 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 	Route::post('users/{id}', 'UsersController@update');
 
 	Route::resource('users','UsersController');
-
-	Route::get('admin/appointments',function()
-	{
-		return View::make('admin/appointments');
-	});
-
-
+	
 	Route::resource('appointments', 'AppointmentsController');
 
 	Route::get('times/{timeslot?}','AppointmentsController@getTimes');

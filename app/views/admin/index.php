@@ -4,7 +4,7 @@
     <title>Admin Page</title>
     <h1>Admin Page</h1>
     <a href="/auth/logout">Logout</a>
-    <a href="admin/appointments">Appointments</a>
+    <a href="appointments">Appointments</a>
 
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
