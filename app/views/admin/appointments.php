@@ -37,10 +37,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="appointment in appointments | filter:searchText" ng-init='clients=find(appointment.user_id)'>
+        <tr ng-repeat="appointment in appointments | filter:searchText" ng-init='barbers=find(appointment.barber_id)'>
         <td>{{ appointment.appointment_id }}</td>
         <td>{{ appointment.user_id }}</td>
-        <td>{{ barber.first_name }}</td>
+        <td>{{ appointment.barber_id }}</td>
         <td>{{ appointment.haircut_type }}</td>
         <td>{{ appointment.music_choice  }}</td>
         <td>{{ appointment.drink_choice }}</td>
