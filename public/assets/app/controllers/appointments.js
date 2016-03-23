@@ -4,20 +4,27 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
         .success(function(response) {
             $scope.appointments = response;
         });
-    //retrieve appointments listing from API
+
+    //retrieve barbers listing from API
     $http.get(API_URL + "users")
         .success(function(response) {
             $scope.users = response;
         });
 
+    //retrieve clients listing from API
+    $http.get(API_URL + "clients")
+        .success(function(response) {
+            $scope.clients = response;
+        });
 
-    $scope.find = function(user_id){
-        $scope.user_id = user_id;
-        $http.get(API_URL + 'users/' + user_id)
+
+    $scope.find = function(appointment_id){
+        $scope.appointment_id = appointment_id;
+        $http.get(API_URL + 'appointments/' + appointment_id)
             .success(function(response) {
                 console.log(response);
-                $scope.user = response;
-                console.log(user_id);
+                $scope.appointment = response;
+                console.log(appointment_id);
             });
 
     };
@@ -30,10 +37,9 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
         switch (modalstate) {
             case 'add':
                 $scope.form_title = "Add New Appointment";
-                $scope.user = null;
+                $scope.appointment= null;
                 console.log(id);
                 $('#myAddModal').modal('show');
-
                 break;
             case 'edit':
                 $scope.form_title = "Appointment Details";
@@ -41,7 +47,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
                 $http.get(API_URL + 'appointment/' + id)
                     .success(function(response) {
                         console.log(response);
-                        $scope.user = response;
+                        $scope.appointment= response;
                         console.log(id);
                         $('#myEditModal').modal('show');
 

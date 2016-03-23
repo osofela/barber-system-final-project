@@ -25,8 +25,6 @@ class Appointment extends Eloquent
     protected $foreignKey = ['user_id', 'barber_id'];
 
 
-
-
     protected $fillable = [
         'haircut_type',
         'music_choice',

@@ -38,6 +38,7 @@ class UsersController extends ApiController
         {
             return User::where('role' ,'!=', 'Client')->get();
         }
+
         else
         {
             return $this->show($id);
@@ -149,5 +150,10 @@ class UsersController extends ApiController
         $user = User::findOrFail($id);
 
         $user->delete();
+    }
+
+    public function getClients()
+    {
+        return User::where('role' ,'=', 'Client')->get();
     }
 }

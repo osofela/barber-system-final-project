@@ -26,11 +26,9 @@ class AppointmentsController extends ApiController {
      *
      * @return Response
      */
-    public function index($appointmentId = null)
+    public function index($user_id = null)
     {
-        $appointments = $this->getAppointments($appointmentId);
-
-        return $appointments;
+        return $this->getAppointments($user_id);
 
 //        return $this->respond([
 //
@@ -127,6 +125,16 @@ class AppointmentsController extends ApiController {
     {
         return $userId ? User::find($userId)->appointments : Appointment::all();
     }
+
+    /**
+     * @return Clients Appointments
+     */
+
+//    private function getUserAppointments()
+//    {
+//        return $this->getAppointments(Auth::user()->user_id);
+//    }
+
 
     public function getTimes($timeSlot = 40)
     {

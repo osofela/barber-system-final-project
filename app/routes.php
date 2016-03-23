@@ -18,18 +18,18 @@ Route::get('/', function()
 
 
 // route to show the login form
-Route::get('auth/login', array('uses' => 'AuthController@showLogin'));
+Route::get('auth/login', array('before' => 'guest','uses' => 'AuthController@showLogin'));
 
 // route to process the form
-Route::post('/auth/login', array('before' => 'csrf','uses' => 'AuthController@doLogin'));
+Route::post('auth/login', array('before' => 'csrf','uses' => 'AuthController@doLogin'));
 
-Route::get('/auth/logout', array('uses' => 'AuthController@doLogout'));
+Route::get('auth/logout', array('uses' => 'AuthController@doLogout'));
 
-Route::get('/auth/register', array('uses' => 'AuthController@showRegister'));
+Route::get('auth/register', array('before' => 'guest','uses' => 'AuthController@showRegister'));
 
 Route::post('auth/register', array('before' => 'csrf','uses' => 'AuthController@doRegister'));
 
-Route::get('auth/thanks', array('uses' => 'AuthController@showThanks'));
+Route::get('auth/thanks', array('before' => 'guest','uses' => 'AuthController@showThanks'));
 
 
 Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
@@ -71,8 +71,10 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 
 	Route::post('users/{id}', 'UsersController@update');
 
+	Route::get('clients', 'UsersController@getClients');
+
 	Route::resource('users','UsersController');
-	
+
 	Route::resource('appointments', 'AppointmentsController');
 
 	Route::get('times/{timeslot?}','AppointmentsController@getTimes');

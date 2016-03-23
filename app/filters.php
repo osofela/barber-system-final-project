@@ -65,8 +65,6 @@ Route::filter('admin', function()
 
 Route::filter('barber', function()
 {
-	$userRole = Auth::user()->role;
-
 	if(Auth::user()->role != "Barber")
 	{
 		return Redirect::to(strtolower('api/v1/' . Auth::user()->role));
@@ -75,8 +73,6 @@ Route::filter('barber', function()
 
 Route::filter('intern', function()
 {
-	$userRole = Auth::user()->role;
-
 	if(Auth::user()->role != "Intern")
 	{
 		return Redirect::to(strtolower('api/v1/' . Auth::user()->role));
@@ -85,8 +81,6 @@ Route::filter('intern', function()
 
 Route::filter('client', function()
 {
-	$userRole = Auth::user()->role;
-
 	if(Auth::user()->role != "Client")
 	{
 		return Redirect::to(strtolower('api/v1/' . Auth::user()->role));
@@ -106,7 +100,10 @@ Route::filter('client', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check())
+	{
+		return Redirect::to(strtolower('api/v1/' . Auth::user()->role));
+	}
 });
 
 /*

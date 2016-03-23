@@ -6,6 +6,7 @@
  * Date: 04/03/2016
  * Time: 20:31
  */
+
 class AppointmentsTableSeeder extends Seeder
 {
 
