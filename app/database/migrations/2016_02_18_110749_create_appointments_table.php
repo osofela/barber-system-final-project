@@ -24,6 +24,7 @@ class CreateAppointmentsTable extends Migration {
 
 			$table->string('haircut_type');
 			$table->string('music_choice');
+			$table->string('music_artist')->default('None');
 			$table->string('drink_choice');
 			$table->date('date');
 			$table->time('start_time');

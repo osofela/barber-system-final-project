@@ -31,7 +31,6 @@ app.controller('usersController', function($scope, $http, API_URL) {
                 break;
             default:
                 break;
-
         }
     }
 

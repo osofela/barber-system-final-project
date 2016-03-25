@@ -55,7 +55,23 @@ class AppointmentsController extends ApiController {
      */
     public function store()
     {
-        //
+
+        $appointment = new Appointment;
+
+        $appointment->user_id = Input::get('user_id');
+        $appointment->barber_id = Input::get('barber_id');
+        $appointment->haircut_type = Input::get('haircut_type');
+        $appointment->music_choice = Input::get('music_choice');
+
+        if (Input::has('music_artist'))
+        {
+            $appointment->music_artist = Input::get('music_artist');
+        }
+
+        $appointment->drink_choice = Input::get('drink_choice');
+        $appointment->date = Carbon::parse(Input::get('date'));
+        $appointment->save();
+
     }
 
 
@@ -68,17 +84,17 @@ class AppointmentsController extends ApiController {
 
     public function show($id)
     {
-        $appointment = Appointment::find($id);
+        return Appointment::find($id);
 
-        if (! $appointment)
-        {
-            return $this->respondNotFound('Appointment does not exist.');
-        }
-
-        return $this->respond([
-
-            'data' => $this->appointmentTransformer->transform($appointment)
-        ]);
+//        if (! $appointment)
+//        {
+//            return $this->respondNotFound('Appointment does not exist.');
+//        }
+//
+//        return $this->respond([
+//
+//            'data' => $this->appointmentTransformer->transform($appointment)
+//        ]);
     }
 
 
@@ -102,7 +118,22 @@ class AppointmentsController extends ApiController {
      */
     public function update($id)
     {
-        //
+        $appointment = Appointment::findOrfail($id);
+        $appointment->user_id = Input::get('user_id');
+        $appointment->barber_id = Input::get('barber_id');
+        $appointment->haircut_type = Input::get('haircut_type');
+        $appointment->music_choice = Input::get('music_choice');
+
+        if (Input::has('music_artist'))
+        {
+            $appointment->music_artist = Input::get('music_artist');
+        }
+
+
+        $appointment->drink_choice = Input::get('drink_choice');
+        $appointment->date = Carbon::parse(Input::get('date'));
+        $appointment->save();
+
     }
 
 
@@ -114,7 +145,9 @@ class AppointmentsController extends ApiController {
      */
     public function destroy($id)
     {
-        //
+        $appointment = Appointment::findOrFail($id);
+
+        $appointment->delete();
     }
 
     /**

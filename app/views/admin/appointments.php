@@ -29,6 +29,7 @@
             <th>Barber Id</th>
             <th>Haircut Type</th>
             <th>Music Choice</th>
+            <th>Music Artist</th>
             <th>Drink Choice</th>
             <th>Date</th>
             <th>Start Time</th>
@@ -38,19 +39,20 @@
         </thead>
         <tbody>
         <tr ng-repeat="appointment in appointments | filter:searchText">
-        <td>{{ appointment.appointment_id }}</td>
-        <td>{{ appointment.user_id }}</td>
-        <td>{{ appointment.barber_id }}</td>
-        <td>{{ appointment.haircut_type }}</td>
-        <td>{{ appointment.music_choice  }}</td>
-        <td>{{ appointment.drink_choice }}</td>
-        <td>{{ appointment.date }}</td>
-        <td>{{ appointment.start_time }}</td>
-        <td>{{ appointment.end_time }}</td>
-        <td>
-            <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit', appointment.appointment_id)">Edit</button>
-            <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(appointment.appointment_id)">Delete</button>
-        </td>
+            <td>{{ appointment.appointment_id }}</td>
+            <td>{{ appointment.user_id }}</td>
+            <td>{{ appointment.barber_id }}</td>
+            <td>{{ appointment.haircut_type }}</td>
+            <td>{{ appointment.music_choice  }}</td>
+            <td>{{ appointment.music_artist  }}</td>
+            <td>{{ appointment.drink_choice }}</td>
+            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.start_time }}</td>
+            <td>{{ appointment.end_time }}</td>
+            <td>
+                <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit',appointment.appointment_id)">Edit</button>
+                <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(appointment.appointment_id)">Delete</button>
+            </td>
         </tr>
 
         </tbody>

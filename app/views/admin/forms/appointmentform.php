@@ -1,4 +1,4 @@
-<div class="modal fade" id="myAddModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,22 +8,23 @@
             <div class="modal-body">
                 <form name="frmAppointments" class="form-horizontal" novalidate="">
 
-                    <div class="form-group">
+                    <div class="form-group error">
                         <label for="inputEmail3" class="col-sm-3 control-label">Client</label>
                         <div class="col-sm-4">
-                            <select name="client" id="client" ng-model="appointment.client" class="form-control" ng-required="true">
-                                <option ng-repeat="client in clients" value="{{client.user_id}}">{{client.first_name}} {{client.last_name}}</option>
+                            <select name="user_id" id="user_id" ng-model="appointment.user_id" class="form-control" ng-required="true">
+                                <option ng-repeat="client in clients" value="{{client.user_id}}"
+                                        ng-selected="client.user_id == appointment.user_id" >{{client.first_name}} {{client.last_name}}</option>
                             </select>
                                     <span class="help-inline"
                                           ng-show="frmAppointments.client.$invalid && frmAppointments.client.$touched">Client field is required</span>
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group error">
                         <label for="inputEmail3" class="col-sm-3 control-label">Barber</label>
                         <div class="col-sm-4">
-                            <select name="barber" id="barber" ng-model="appointment.barber" class="form-control" ng-required="true">
-                                <option ng-repeat="user in users" value="{{user.user_id}}">{{user.first_name}} {{user.last_name}}</option>
+                            <select name="barber_id" id="barber_id" ng-model="appointment.barber_id" class="form-control" ng-required="true">
+                                <option ng-repeat="barber in users" value="{{barber.user_id}}"  ng-selected="barber.user_id == appointment.barber_id">{{barber.first_name}} {{barber.last_name}}</option>
                             </select>
                                     <span class="help-inline"
                                           ng-show="frmAppointments.barber.$invalid && frmAppointments.barber.$touched">Barber field is required</span>
@@ -49,9 +50,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-3 control-label">Music Genre</label>
+                        <label for="inputEmail3" class="col-sm-3 control-label">Music Choice</label>
                         <div class="col-sm-4">
-                            <select ng-model="appointment.music_choice" class="form-control" id="music_choice" name="music_choice" placeholder="Music Choice" value="{{music_choice}}">
+                            <select ng-model="appointment.music_choice" class="form-control" id="music_choice" name="music_choice" placeholder="Music Choice"
+                                    value="{{music_choice}}" ng-required="true">
                                 <option value="None">None</option>
                                 <option value="Pop">Pop</option>
                                 <option value="Hip Hop/Rap">Hip Hop/Rap</option>
@@ -59,6 +61,9 @@
                                 <option value="RnB/Soul">RnB/Soul</option>
                                 <option value="Rock">Rock</option>
                             </select>
+
+                            <span class="help-inline"
+                                  ng-show="frmAppointments.music_choice.$invalid && frmAppointments.music_choice.$touched">Music Choice field is required</span>
                         </div>
                     </div>
 
@@ -71,9 +76,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-3 control-label">Music Genre</label>
+                        <label for="inputEmail3" class="col-sm-3 control-label">Drink Choice</label>
                         <div class="col-sm-4">
-                            <select ng-model="appointment.drink_choice" class="form-control" id="drink_choice" name="drink_choice" placeholder="Drink Choice" value="{{drink_choice}}">
+                            <select ng-model="appointment.drink_choice" class="form-control" id="drink_choice" name="drink_choice" placeholder="Drink Choice"
+                                    value="{{drink_choice}}" ng-required="true">
                                 <option value="None">None</option>
                                 <option value="Water">Water</option>
                                 <option value="Coke Cola">Coke Cola</option>
@@ -82,6 +88,8 @@
                                 <option value="Ice Tea">Ice Tea</option>
                                 <option value="Coffee">Coffee</option>
                             </select>
+                            <span class="help-inline"
+                                  ng-show="frmAppointments.drink_choice.$invalid && frmAppointments.drink_choice.$touched">Drink Choice field is required</span>
                         </div>
                     </div>
 
@@ -97,8 +105,8 @@
                 </form>
             </div>
             <hr>
-            <tt>barber = {{appointment.barber}}</tt><br/>
-            <tt>client= {{appointment.client}}</tt><br/>
+            <tt>barber = {{appointment.barber_id}}</tt><br/>
+            <tt>client = {{appointment.user_id}}</tt><br/>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, appointment.appointment_id)" ng-disabled="frmAppointments.$invalid">Save</button>
             </div>

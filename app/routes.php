@@ -71,11 +71,15 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 
 	Route::post('users/{id}', 'UsersController@update');
 
+	Route::post('appointments/{id}', 'AppointmentsController@update');
+
 	Route::get('clients', 'UsersController@getClients');
 
 	Route::resource('users','UsersController');
 
 	Route::resource('appointments', 'AppointmentsController');
+
+
 
 	Route::get('times/{timeslot?}','AppointmentsController@getTimes');
 

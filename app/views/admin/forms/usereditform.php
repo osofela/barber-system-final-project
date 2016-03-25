@@ -62,7 +62,7 @@
                         <label for="inputEmail3" class="col-sm-3 control-label">Role</label>
                         <div class="col-sm-9">
                             <select ng-model="user.role" class="form-control" id="role" name="role" placeholder="Role" value="{{role}}"
-                                 ng-required="true">
+                                    ng-required="true">
                             <option value="Admin">Admin</option>
                             <option value="Barber">Barber</option>
                             <option value="Intern">Intern</option>

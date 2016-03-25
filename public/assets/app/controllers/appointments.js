@@ -18,17 +18,6 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
         });
 
 
-    $scope.find = function(appointment_id){
-        $scope.appointment_id = appointment_id;
-        $http.get(API_URL + 'appointments/' + appointment_id)
-            .success(function(response) {
-                console.log(response);
-                $scope.appointment = response;
-                console.log(appointment_id);
-            });
-
-    };
-
 
     //show modal form
     $scope.toggle = function(modalstate, id) {
@@ -36,27 +25,29 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
 
         switch (modalstate) {
             case 'add':
+
                 $scope.form_title = "Add New Appointment";
                 $scope.appointment= null;
                 console.log(id);
-                $('#myAddModal').modal('show');
                 break;
             case 'edit':
                 $scope.form_title = "Appointment Details";
                 $scope.id = id;
-                $http.get(API_URL + 'appointment/' + id)
+                $http.get(API_URL + 'appointments/' + id)
                     .success(function(response) {
                         console.log(response);
-                        $scope.appointment= response;
+                        $scope.appointment = response;
+                        $scope.appointment.date = new Date($scope.appointment.date);
                         console.log(id);
-                        $('#myEditModal').modal('show');
 
                     });
+
                 break;
             default:
                 break;
 
         }
+        $('#myModal').modal('show');
     };
 
 
@@ -71,7 +62,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
         $http({
             method: 'POST',
             url: url,
-            data: $.param($scope.user),
+            data: $.param($scope.appointment),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(response) {
             console.log(response);

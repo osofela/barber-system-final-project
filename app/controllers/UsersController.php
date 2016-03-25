@@ -104,7 +104,6 @@ class UsersController extends ApiController
 
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -135,7 +134,7 @@ class UsersController extends ApiController
         $user->role = Input::get('role');
         $user->save();
 
-        //return "Sucess updating user #" . $employee->id;
+        //return "Success updating user #" . $employee->id;
     }
 
 

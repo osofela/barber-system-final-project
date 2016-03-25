@@ -28,6 +28,7 @@ class Appointment extends Eloquent
     protected $fillable = [
         'haircut_type',
         'music_choice',
+        'music_artist',
         'drink_choice',
         'date',
         'start_time',
