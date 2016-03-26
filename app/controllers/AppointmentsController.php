@@ -44,7 +44,7 @@ class AppointmentsController extends ApiController {
      */
     public function create()
     {
-        //
+        return View::make(strtolower(Auth::user()->role) . '.appointments');
     }
 
 
@@ -56,18 +56,20 @@ class AppointmentsController extends ApiController {
     public function store()
     {
 
-        $appointment = new Appointment;
+        if( ! Input::get('music_artist'))
+        {
+            $music_artist = "None";
+        }
+        else
+            $music_artist = Input::get('music_artist');
 
+
+        $appointment = new Appointment;
         $appointment->user_id = Input::get('user_id');
         $appointment->barber_id = Input::get('barber_id');
         $appointment->haircut_type = Input::get('haircut_type');
         $appointment->music_choice = Input::get('music_choice');
-
-        if (Input::has('music_artist'))
-        {
-            $appointment->music_artist = Input::get('music_artist');
-        }
-
+        $appointment->music_artist = $music_artist;
         $appointment->drink_choice = Input::get('drink_choice');
         $appointment->date = Carbon::parse(Input::get('date'));
         $appointment->save();
@@ -118,18 +120,21 @@ class AppointmentsController extends ApiController {
      */
     public function update($id)
     {
+
+        if( ! Input::get('music_artist'))
+        {
+            $music_artist = "None";
+        }
+        else
+            $music_artist = Input::get('music_artist');
+
+
         $appointment = Appointment::findOrfail($id);
         $appointment->user_id = Input::get('user_id');
         $appointment->barber_id = Input::get('barber_id');
         $appointment->haircut_type = Input::get('haircut_type');
         $appointment->music_choice = Input::get('music_choice');
-
-        if (Input::has('music_artist'))
-        {
-            $appointment->music_artist = Input::get('music_artist');
-        }
-
-
+        $appointment->music_artist = $music_artist;
         $appointment->drink_choice = Input::get('drink_choice');
         $appointment->date = Carbon::parse(Input::get('date'));
         $appointment->save();

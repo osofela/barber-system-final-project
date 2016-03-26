@@ -47,6 +47,16 @@ class UsersController extends ApiController
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return View::make(strtolower(Auth::user()->role) . '.users');
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @return Response
@@ -77,6 +87,8 @@ class UsersController extends ApiController
         $user->role = Input::get('role');
         $user->password = Hash::make(Input::get('password'));
         $user->save();
+
+
 
 
     }

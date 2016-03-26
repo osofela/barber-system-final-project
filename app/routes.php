@@ -37,6 +37,7 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 
 	Route::group(['prefix' => 'admin', 'before'=> 'admin'],function(){
 
+
 		Route::get('/',function()
 		{
 			return View::make('admin/admin');
@@ -49,7 +50,7 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 
 		Route::get('users',function()
 		{
-			return View::make('admin/index');
+			return View::make('admin/users');
 		});
 
 	});
@@ -69,15 +70,20 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 		return View::make('client/index');
 	}));
 
+
+	Route::resource('users','UsersController');
+
+	Route::resource('appointments', 'AppointmentsController');
+
 	Route::post('users/{id}', 'UsersController@update');
 
 	Route::post('appointments/{id}', 'AppointmentsController@update');
 
 	Route::get('clients', 'UsersController@getClients');
 
-	Route::resource('users','UsersController');
 
-	Route::resource('appointments', 'AppointmentsController');
+
+
 
 
 
