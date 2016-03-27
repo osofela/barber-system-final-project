@@ -9,6 +9,7 @@
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/bootstrap.css') ?>" rel="stylesheet">
+
 </head>
 <body>
 
@@ -67,8 +68,10 @@
 
 <!-- Load Javascript Libraries (AngularJS, JQuery, Bootstrap) -->
 <script src="<?= asset('assets/app/lib/angular/angular.min.js') ?>"></script>
+<script src="<?= asset('assets/js/ui-bootstrap-tpls-1.2.5.min.js') ?>"></script>
 <script src="<?= asset('assets/js/jquery.min.js') ?>"></script>
 <script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
+
 
 <!-- AngularJS Application Scripts -->
 <script src="<?= asset('assets/app/appointmentApp.js') ?>"></script>

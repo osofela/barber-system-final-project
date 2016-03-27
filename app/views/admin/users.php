@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h2>Users Database</h2>
+<h2>Users</h2>
 <div  ng-controller="usersController">
 
     <div class="col-md-3">

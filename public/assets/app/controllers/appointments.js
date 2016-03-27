@@ -1,5 +1,7 @@
 app.controller('appointmentsController', function($scope, $http, API_URL) {
     //retrieve appointments listing from API
+    $scope.showTimes = true;
+
     $http.get(API_URL + "appointments")
         .success(function(response) {
             $scope.appointments = response;
@@ -11,12 +13,12 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
             $scope.users = response;
         });
 
+
     //retrieve clients listing from API
     $http.get(API_URL + "clients")
         .success(function(response) {
             $scope.clients = response;
         });
-
 
 
     //show modal form
@@ -47,6 +49,13 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
                 break;
 
         }
+
+            //retrieve times listing from API
+            $http.get(API_URL + "times")
+                .success(function(response) {
+                    $scope.times = response;
+                });
+
         $('#myModal').modal('show');
     };
 
