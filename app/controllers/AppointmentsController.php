@@ -72,6 +72,13 @@ class AppointmentsController extends ApiController {
         $appointment->music_artist = $music_artist;
         $appointment->drink_choice = Input::get('drink_choice');
         $appointment->date = Carbon::parse(Input::get('date'));
+
+        $times = json_decode(Input::get('time'),true);
+
+        $appointment->start_time = $times['start_time'];
+
+        $appointment->end_time = $times['end_time'];
+
         $appointment->save();
 
     }

@@ -27,9 +27,8 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
 
         switch (modalstate) {
             case 'add':
-
                 $scope.form_title = "Add New Appointment";
-                $scope.appointment= null;
+                $scope.appointment = null;
                 console.log(id);
                 break;
             case 'edit':
@@ -40,6 +39,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
                         console.log(response);
                         $scope.appointment = response;
                         $scope.appointment.date = new Date($scope.appointment.date);
+                        $scope.appointment.time = new Date($scope.appointment.time);
                         console.log(id);
 
                     });

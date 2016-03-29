@@ -102,19 +102,18 @@
                                   ng-show="frmAppointments.date.$invalid && frmAppointments.date.$touched">Date field is required</span>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary" ng-click="showTimes = !showTimes">Get Available Times</button>
+                    <button type="button" class="btn btn-primary" ng-disabled="frmAppointments.date.$invalid" ng-click="showTimes = !showTimes">Get Available Times</button>
                     <hr>
                     <div uib-collapse="showTimes">
                         <div class="form-group error">
                             <div class="col-sm-4">
-                                <div ng-repeat="time in times">
-                                    <label class="btn btn-default " ng-model="appointment.time" btn-radio="test">
-                                        {{time.start_time }} - {{time.end_time}}</label>
-                                </div>
+                                <select name="time" id="time" ng-model="appointment.time" class="form-control" ng-required="true">
+                                    <option ng-repeat="time in times" value="{{time}}">
+                                        {{time.start_time}} {{time.end_time}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-            </div>
                 </form>
             </div>
             <hr>
