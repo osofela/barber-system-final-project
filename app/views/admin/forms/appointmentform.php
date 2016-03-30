@@ -96,10 +96,10 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-3 control-label">Date</label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control" id="date" name="date" placeholder="Date" value="{{date}}"
-                                   ng-model="appointment.date" ng-required="true">
+                            <input type="date" class="form-control" id="appointment_date" name="appointment_date" placeholder="Date" value="{{appointment_date}}"
+                                   ng-model="appointment.appointment_date" ng-required="true">
                             <span class="help-inline"
-                                  ng-show="frmAppointments.date.$invalid && frmAppointments.date.$touched">Date field is required</span>
+                                  ng-show="frmAppointments.appointment_date.$invalid && frmAppointments.appointment_date.$touched">Date field is required</span>
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary" ng-disabled="frmAppointments.date.$invalid" ng-click="showTimes = !showTimes">Get Available Times</button>

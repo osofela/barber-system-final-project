@@ -5,6 +5,12 @@ app.controller('usersController', function($scope, $http, API_URL) {
             $scope.users = response;
         });
 
+    //get logged in user
+    $http.get(API_URL + "user")
+        .success(function(response) {
+            $scope.loggedInUser = response;
+        });
+
     //show modal form
     $scope.toggle = function(modalstate, id) {
         $scope.modalstate = modalstate;

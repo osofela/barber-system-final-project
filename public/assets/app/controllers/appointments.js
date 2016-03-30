@@ -2,6 +2,12 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
     //retrieve appointments listing from API
     $scope.showTimes = true;
 
+    //get logged in user
+    $http.get(API_URL + "user")
+        .success(function(response) {
+            $scope.loggedInUser = response;
+        });
+
     $http.get(API_URL + "appointments")
         .success(function(response) {
             $scope.appointments = response;
@@ -38,11 +44,12 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
                     .success(function(response) {
                         console.log(response);
                         $scope.appointment = response;
-                        $scope.appointment.date = new Date($scope.appointment.date);
+                        $scope.appointment.appointment_date = new Date($scope.appointment.appointment_date);
                         $scope.appointment.time = new Date($scope.appointment.time);
                         console.log(id);
 
                     });
+                
 
                 break;
             default:

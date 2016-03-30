@@ -152,4 +152,13 @@ class AuthController extends BaseController
     {
         return View::make('auth.thanks');
     }
+
+    /**
+     * @return mixed
+     */
+
+    public function getLoggedInUser()
+    {
+        return Auth::user();
+    }
 }

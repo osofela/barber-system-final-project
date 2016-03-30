@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-US" ng-app="userRecords">
+<html lang="en-US" ng-app="userRecords" ng-controller="usersController">
+
 <head>
     <title>Admin Page</title>
     <h1>Admin Page</h1>
+    <h3>Hello {{loggedInUser.first_name}} {{loggedInUser.last_name}}</h3>
     <a href="/auth/logout">Logout</a>
     <a href="appointments">Appointments</a>
 
@@ -13,7 +15,6 @@
 <body>
 
 <h2>Users</h2>
-<div  ng-controller="usersController">
 
     <div class="col-md-3">
         <input ng-model="searchText" class="form-control" type="search" placeholder="Search">
@@ -55,7 +56,6 @@
     <?php include 'forms/useraddform.php';?>
     <?php include 'forms/usereditform.php';?>
 
-</div>
 
 
 <!-- Load Javascript Libraries (AngularJS, JQuery, Bootstrap) -->

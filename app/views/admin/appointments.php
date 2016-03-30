@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-US" ng-app="appointmentRecords">
+<html lang="en-US" ng-app="appointmentRecords" ng-controller="appointmentsController">
 <head>
     <title>Admin Page</title>
     <h1>Admin Page</h1>
+    <h3>Hello {{loggedInUser.first_name}} {{loggedInUser.last_name}}</h3>
     <a href="/auth/logout">Logout</a>
     <a href="users">Users</a>
 
@@ -14,7 +15,6 @@
 <body>
 
 <h2>Appointments</h2>
-<div  ng-controller="appointmentsController">
 
     <div class="col-md-3">
         <input ng-model="searchText" class="form-control" type="search" placeholder="Search">
@@ -47,7 +47,7 @@
             <td>{{ appointment.music_choice  }}</td>
             <td>{{ appointment.music_artist  }}</td>
             <td>{{ appointment.drink_choice }}</td>
-            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.appointment_date }}</td>
             <td>{{ appointment.start_time }}</td>
             <td>{{ appointment.end_time }}</td>
             <td>

@@ -9,9 +9,9 @@ class AppointmentsController extends ApiController {
     protected $appointmentTransformer;
 
     /**
-     * TagsController constructor.
+     *
      * @param AppointmentTransformer $appointmentTransformer
-     * @internal param $tagTransformer
+     *
      */
 
     public function __construct(AppointmentTransformer $appointmentTransformer)
@@ -71,7 +71,7 @@ class AppointmentsController extends ApiController {
         $appointment->music_choice = Input::get('music_choice');
         $appointment->music_artist = $music_artist;
         $appointment->drink_choice = Input::get('drink_choice');
-        $appointment->date = Carbon::parse(Input::get('date'));
+        $appointment->appointment_date = Carbon::parse(Input::get('appointment_date'));
 
         $times = json_decode(Input::get('time'),true);
 
@@ -137,13 +137,14 @@ class AppointmentsController extends ApiController {
 
 
         $appointment = Appointment::findOrfail($id);
+
         $appointment->user_id = Input::get('user_id');
         $appointment->barber_id = Input::get('barber_id');
         $appointment->haircut_type = Input::get('haircut_type');
         $appointment->music_choice = Input::get('music_choice');
         $appointment->music_artist = $music_artist;
         $appointment->drink_choice = Input::get('drink_choice');
-        $appointment->date = Carbon::parse(Input::get('date'));
+        $appointment->appointment_date = Carbon::parse(Input::get('appointment_date'));
         $appointment->save();
 
     }
@@ -175,16 +176,17 @@ class AppointmentsController extends ApiController {
      * @return Clients Appointments
      */
 
-//    private function getUserAppointments()
-//    {
-//        return $this->getAppointments(Auth::user()->user_id);
-//    }
+    private function getClientAppointments()
+    {
+        return $this->getAppointments(Auth::user()->user_id);
+    }
 
 
     public function getTimes($timeSlot = 40)
     {
         $startTime = Carbon::create(null, null, null, 9);
         $endTime = Carbon::create(null, null, null, 9);
+        $appointment_date = Carbon::parse(Input::get('appointment_date'));
 
 
         $times = array();
@@ -193,7 +195,16 @@ class AppointmentsController extends ApiController {
         {
 
             $endTime->addMinutes($timeSlot);
-            array_push($times, array("start_time" => $startTime->toTimeString() ,"end_time" => $endTime->toTimeString()));
+
+            $time = DB::select( DB::raw("SELECT * FROM appointments WHERE appointment_date = :appointment_date && start_time = :startTime"), array(
+                'startTime' => $startTime->toTimeString(),
+                'appointment_date' => $appointment_date->toDateString()
+            ));
+
+            if(!$time)
+            {
+                array_push($times, array("start_time" => $startTime->toTimeString(), "end_time" => $endTime->toTimeString()));
+            }
             $startTime->addMinutes($timeSlot);
 
         }
