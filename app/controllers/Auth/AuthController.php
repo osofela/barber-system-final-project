@@ -60,7 +60,7 @@ class AuthController extends BaseController
 
                 if($userRole == "Admin")
                 {
-                    return Redirect::to('api/v1/admin/users');
+                    return Redirect::to('api/v1/admin/dashboard');
                 }
                 else if($userRole == "Barber")
                 {

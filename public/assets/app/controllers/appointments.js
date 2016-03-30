@@ -49,7 +49,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
                         console.log(id);
 
                     });
-                
+
 
                 break;
             default:

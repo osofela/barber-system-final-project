@@ -53,6 +53,11 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 			return View::make('admin/users');
 		});
 
+		Route::get('dashboard',function()
+		{
+			return View::make('admin/dashboard');
+		});
+
 	});
 
 	Route::get('barber',array('before' => 'barber', function ()

@@ -6,6 +6,7 @@
     <h3>Hello {{loggedInUser.first_name}} {{loggedInUser.last_name}}</h3>
     <a href="/auth/logout">Logout</a>
     <a href="users">Users</a>
+    <a href="dashboard">Dashboard</a>
 
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
