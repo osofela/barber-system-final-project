@@ -44,4 +44,14 @@ class Appointment extends Eloquent
             return $this->belongsTo('User','user_id');
     }
 
+    public function barber()
+    {
+        return $this->belongsTo('User','barber_id');
+    }
+
+    public function client()
+    {
+        return $this->belongsTo('User','user_id');
+    }
+
 }

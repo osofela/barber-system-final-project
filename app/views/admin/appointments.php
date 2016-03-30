@@ -27,8 +27,8 @@
         <thead>
         <tr>
             <th>Appointment Id</th>
-            <th>User Id</th>
-            <th>Barber Id</th>
+            <th>User</th>
+            <th>Barber</th>
             <th>Haircut Type</th>
             <th>Music Choice</th>
             <th>Music Artist</th>
@@ -42,8 +42,8 @@
         <tbody>
         <tr ng-repeat="appointment in appointments | filter:searchText">
             <td>{{ appointment.appointment_id }}</td>
-            <td>{{ appointment.user_id }}</td>
-            <td>{{ appointment.barber_id }}</td>
+            <td>{{ appointment.client.first_name}} {{ appointment.client.last_name }}</td>
+            <td>{{ appointment.barber.first_name}} {{ appointment.barber.last_name }}</td>
             <td>{{ appointment.haircut_type }}</td>
             <td>{{ appointment.music_choice  }}</td>
             <td>{{ appointment.music_artist  }}</td>

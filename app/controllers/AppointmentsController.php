@@ -28,7 +28,15 @@ class AppointmentsController extends ApiController {
      */
     public function index($user_id = null)
     {
-        return $this->getAppointments($user_id);
+       $appointments =  $this->getAppointments($user_id);
+
+        foreach($appointments as $appointment)
+        {
+            $appointment->barber = $appointment->barber;
+            $appointment->client= $appointment->client;
+        }
+
+        return $appointments;
 
 //        return $this->respond([
 //
