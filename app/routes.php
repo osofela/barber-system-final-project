@@ -70,11 +70,27 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 		return View::make('intern/intern');
 	}));
 
-	Route::get('client',array('before' => 'client', function ()
-	{
-		return View::make('client/index');
-	}));
 
+	Route::group(['prefix' => 'client', 'before'=> 'client'],function(){
+
+		Route::get('home',function()
+		{
+			return View::make('client/client');
+		});
+
+		Route::get('dashboard',function()
+		{
+			return View::make('client/dashboard');
+		});
+
+		Route::get('appointments','ClientsController@index');
+		Route::post('appointments','ClientsController@store');
+		Route::get('appointments/{id}','ClientsController@show');
+		Route::post('appointments/{id}','ClientsController@update');
+		Route::delete('appointments/{id}','ClientsController@destroy');
+
+
+	});
 
 	Route::resource('users','UsersController');
 

@@ -8,17 +8,6 @@
             <div class="modal-body">
                 <form name="frmAppointments" class="form-horizontal" novalidate="">
 
-                    <div class="form-group error">
-                        <label for="inputEmail3" class="col-sm-3 control-label">Client</label>
-                        <div class="col-sm-4">
-                            <select name="user_id" id="user_id" ng-model="appointment.user_id" class="form-control" ng-required="true">
-                                <option ng-repeat="client in clients" value="{{client.user_id}}"
-                                        ng-selected="client.user_id == appointment.user_id" >{{client.first_name}} {{client.last_name}}</option>
-                            </select>
-                                    <span class="help-inline"
-                                          ng-show="frmAppointments.client.$invalid && frmAppointments.client.$touched">Client field is required</span>
-                        </div>
-                    </div>
 
                     <div class="form-group error">
                         <label for="inputEmail3" class="col-sm-3 control-label">Barber</label>
@@ -118,7 +107,6 @@
             </div>
             <hr>
             <tt>barber = {{appointment.barber_id}}</tt><br/>
-            <tt>client = {{appointment.user_id}}</tt><br/>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, appointment.appointment_id)" ng-disabled="frmAppointments.$invalid">Save</button>
             </div>

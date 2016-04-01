@@ -27,7 +27,7 @@
         <thead>
         <tr>
             <th>Appointment Id</th>
-            <th>User</th>
+            <th>Client</th>
             <th>Barber</th>
             <th>Haircut Type</th>
             <th>Music Choice</th>
@@ -48,7 +48,7 @@
             <td>{{ appointment.music_choice  }}</td>
             <td>{{ appointment.music_artist  }}</td>
             <td>{{ appointment.drink_choice }}</td>
-            <td>{{ appointment.appointment_date }}</td>
+            <td>{{ appointment.date }}</td>
             <td>{{ appointment.start_time }}</td>
             <td>{{ appointment.end_time }}</td>
             <td>

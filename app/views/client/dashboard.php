@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en-US" ng-app="adminAppointments" ng-controller="adminController">
+<html lang="en-US" ng-app="clientAppointments" ng-controller="clientController">
 <head>
-    <title>Admin Dashboard</title>
-    <h1>Admin Dashboard</h1>
+    <title>Client Page</title>
+    <h1>Client Page</h1>
     <h3>Hello {{loggedInUser.first_name}} {{loggedInUser.last_name}}</h3>
     <a href="/auth/logout">Logout</a>
-    <a href="users">Users</a>
-    <a href="appointments">Appointments</a>
+    <a href="home">Home</a>
 
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -26,7 +25,8 @@
 <table class="table">
     <thead>
     <tr>
-        <th>Client</th>
+        <th>Appointment Id</th>
+        <th>Barber</th>
         <th>Haircut Type</th>
         <th>Music Choice</th>
         <th>Music Artist</th>
@@ -34,11 +34,13 @@
         <th>Date</th>
         <th>Start Time</th>
         <th>End Time</th>
+        <th><button id="btn-add" class="btn btn-primary btn-xs" ng-click="toggle('add', 0)">Add New Appointment</button></th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="appointment in appointments | filter:searchText">
-        <td>{{ appointment.client.first_name}} {{ appointment.client.last_name }}</td>
+        <td>{{ appointment.appointment_id }}</td>
+        <td>{{ appointment.barber.first_name}} {{ appointment.barber.last_name }}</td>
         <td>{{ appointment.haircut_type }}</td>
         <td>{{ appointment.music_choice  }}</td>
         <td>{{ appointment.music_artist  }}</td>
@@ -46,10 +48,18 @@
         <td>{{ appointment.date }}</td>
         <td>{{ appointment.start_time }}</td>
         <td>{{ appointment.end_time }}</td>
+        <td>
+            <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit',appointment.appointment_id)">Edit</button>
+            <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(appointment.appointment_id)">Delete</button>
+        </td>
     </tr>
 
     </tbody>
 </table>
+
+<!-- End of Table-to-load-the-data Part -->
+<!-- Modal (Pop up when detail button clicked) -->
+<?php include 'forms/clientform.php';?>
 
 </div>
 
@@ -62,7 +72,7 @@
 
 
 <!-- AngularJS Application Scripts -->
-<script src="<?= asset('assets/app/adminApp.js') ?>"></script>
-<script src="<?= asset('assets/app/controllers/adminAppointments.js') ?>"></script>
+<script src="<?= asset('assets/app/clientApp.js') ?>"></script>
+<script src="<?= asset('assets/app/controllers/clientAppointments.js') ?>"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@ class Appointment extends Eloquent
         'music_choice',
         'music_artist',
         'drink_choice',
-        'appointment_date',
+        'date',
         'start_time',
         'end_time',
     ];

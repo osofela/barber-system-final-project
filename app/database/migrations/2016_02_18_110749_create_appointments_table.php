@@ -26,7 +26,7 @@ class CreateAppointmentsTable extends Migration {
 			$table->string('music_choice');
 			$table->string('music_artist');
 			$table->string('drink_choice');
-			$table->date('appointment_date');
+			$table->date('date');
 			$table->time('start_time');
 			$table->time('end_time');
 			$table->timestamps();

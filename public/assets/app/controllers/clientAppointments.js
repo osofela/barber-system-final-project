@@ -1,15 +1,15 @@
-app.controller('appointmentsController', function($scope, $http, API_URL) {
-    //retrieve appointments listing from API
-    $scope.showTimes = true;
+app.controller('clientController', function($scope, $http, API_URL) {
 
     //get logged in user
+
     $http.get(API_URL + "user")
-        .success(function(response) {
+        .success(function (response) {
             $scope.loggedInUser = response;
         });
 
-    $http.get(API_URL + "appointments")
-        .success(function(response) {
+    $http.get(API_URL + "client/appointments")
+        .success(function (response) {
+            console.log(response);
             $scope.appointments = response;
         });
 
@@ -18,14 +18,6 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
         .success(function(response) {
             $scope.users = response;
         });
-
-
-    //retrieve clients listing from API
-    $http.get(API_URL + "clients")
-        .success(function(response) {
-            $scope.clients = response;
-        });
-
 
     //show modal form
     $scope.toggle = function(modalstate, id) {
@@ -40,7 +32,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
             case 'edit':
                 $scope.form_title = "Appointment Details";
                 $scope.id = id;
-                $http.get(API_URL + 'appointments/' + id)
+                $http.get(API_URL + 'client/appointments/' + id)
                     .success(function(response) {
                         console.log(response);
                         $scope.appointment = response;
@@ -60,7 +52,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
 
 
     $scope.save = function(modalstate, id) {
-        var url = API_URL + "appointments";
+        var url = API_URL + "client/appointments";
 
 
         if (modalstate === 'edit'){
@@ -87,7 +79,7 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
         if (isConfirmDelete) {
             $http({
                 method: 'DELETE',
-                url: API_URL + 'appointments/' + id,
+                url: API_URL + 'client/appointments/' + id,
             }).
             success(function(data) {
                 console.log(data);
