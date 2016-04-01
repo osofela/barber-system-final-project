@@ -73,7 +73,7 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 
 	Route::group(['prefix' => 'client', 'before'=> 'client'],function(){
 
-		Route::get('home',function()
+		Route::get('/',function()
 		{
 			return View::make('client/client');
 		});

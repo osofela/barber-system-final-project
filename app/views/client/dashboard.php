@@ -5,7 +5,7 @@
     <h1>Client Page</h1>
     <h3>Hello {{loggedInUser.first_name}} {{loggedInUser.last_name}}</h3>
     <a href="/auth/logout">Logout</a>
-    <a href="home">Home</a>
+    <a href="/api/v1/client/">Home</a>
 
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
