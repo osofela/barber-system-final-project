@@ -22,7 +22,7 @@ class Appointment extends Eloquent
 
     protected $primaryKey = 'appointment_id';
 
-    protected $foreignKey = ['user_id', 'barber_id'];
+    protected $foreignKey = ['client_id', 'barber_id'];
 
 
     protected $fillable = [
@@ -51,7 +51,7 @@ class Appointment extends Eloquent
 
     public function client()
     {
-        return $this->belongsTo('User','user_id');
+        return $this->belongsTo('User','client_id');
     }
 
 }

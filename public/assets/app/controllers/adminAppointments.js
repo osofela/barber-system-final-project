@@ -20,4 +20,27 @@ app.controller('adminController', function($scope, $http, API_URL) {
                 console.log(user_id);
             });
     };
+
+    $scope.getTimes = function(haircut_type)
+    {
+        var timeslot = 40;
+
+        if(haircut_type == "Hot Towel Shave")
+        {
+            timeslot = 20;
+        }
+        else if(haircut_type == "Dry Cut & Hot Towel Shave" || haircut_type == "Wet Cut & Hot Towel Shave" || haircut_type == "Style Cut & Hot Towel Shave")
+        {
+            timeslot = 60;
+        }
+
+        $scope.timeslot = timeslot;
+        $http.get(API_URL + "times/" + timeslot)
+            .success(function (response) {
+                console.log(response);
+                $scope.times = response;
+                console.log(timeslot);
+            });
+
+    };
 });

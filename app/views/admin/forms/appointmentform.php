@@ -11,9 +11,9 @@
                     <div class="form-group error">
                         <label for="inputEmail3" class="col-sm-3 control-label">Client</label>
                         <div class="col-sm-4">
-                            <select name="user_id" id="user_id" ng-model="appointment.user_id" class="form-control" ng-required="true">
+                            <select name="client_id" id="client_id" ng-model="appointment.client_id" class="form-control" ng-required="true">
                                 <option ng-repeat="client in clients" value="{{client.user_id}}"
-                                        ng-selected="client.user_id == appointment.user_id" >{{client.first_name}} {{client.last_name}}</option>
+                                        ng-selected="client.user_id == appointment.client_id" >{{client.first_name}} {{client.last_name}}</option>
                             </select>
                                     <span class="help-inline"
                                           ng-show="frmAppointments.client.$invalid && frmAppointments.client.$touched">Client field is required</span>
@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-3 control-label">Haircut Type</label>
                         <div class="col-sm-4">
-                            <select ng-model="appointment.haircut_type" class="form-control" id="haircut_type" name="haircut_type" placeholder="Haircut Type" value="{{haircut_type}}"
+                            <select ng-model="appointment.haircut_type" class="form-control" id="haircut_type" name="haircut_type" ng-change="getTimes(appointment.haircut_type)" placeholder="Haircut Type" value="{{haircut_type}}"
                                     ng-required="true">
                                 <option value="Dry Cut">Dry Cut</option>
                                 <option value="Wet Cut">Wet Cut</option>
@@ -118,7 +118,10 @@
             </div>
             <hr>
             <tt>barber = {{appointment.barber_id}}</tt><br/>
-            <tt>client = {{appointment.user_id}}</tt><br/>
+            <tt>client = {{appointment.client_id}}</tt><br/>
+            <tt>times = {{appointment.time}}</tt><br/>
+
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, appointment.appointment_id)" ng-disabled="frmAppointments.$invalid">Save</button>
             </div>
