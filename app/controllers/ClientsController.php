@@ -17,8 +17,9 @@ class ClientsController extends ApiController {
 	 */
 	public function index()
 	{
-		$client = User::find(Auth::user()->user_id);
 
+		$client_id = Auth::user()->user_id;
+		$client = User::find($client_id);
 
 		$appointments =  $client->appointments;
 

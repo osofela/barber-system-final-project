@@ -73,7 +73,7 @@ class AppointmentsController extends ApiController {
 
 
         $appointment = new Appointment;
-        $appointment->client_id = Input::get('client_id');
+        $appointment->user_id = Input::get('user_id');
         $appointment->barber_id = Input::get('barber_id');
         $appointment->haircut_type = Input::get('haircut_type');
         $appointment->music_choice = Input::get('music_choice');
@@ -146,7 +146,7 @@ class AppointmentsController extends ApiController {
 
         $appointment = Appointment::findOrfail($id);
 
-        $appointment->client_id = Input::get('client_id');
+        $appointment->user_id = Input::get('user_id');
         $appointment->barber_id = Input::get('barber_id');
         $appointment->haircut_type = Input::get('haircut_type');
         $appointment->music_choice = Input::get('music_choice');

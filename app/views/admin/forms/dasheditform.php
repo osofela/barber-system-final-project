@@ -1,4 +1,4 @@
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel" aria-hidden="true">
+<div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -17,17 +17,6 @@
                             </select>
                                     <span class="help-inline"
                                           ng-show="frmAppointments.client.$invalid && frmAppointments.client.$touched">Client field is required</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group error">
-                        <label for="inputEmail3" class="col-sm-3 control-label">Barber</label>
-                        <div class="col-sm-4">
-                            <select name="barber_id" id="barber_id" ng-model="appointment.barber_id" class="form-control" ng-required="true">
-                                <option ng-repeat="barber in barbers" value="{{barber.user_id}}"  ng-selected="barber.user_id == appointment.barber_id">{{barber.first_name}} {{barber.last_name}}</option>
-                            </select>
-                                    <span class="help-inline"
-                                          ng-show="frmAppointments.barber.$invalid && frmAppointments.barber.$touched">Barber field is required</span>
                         </div>
                     </div>
 
@@ -117,7 +106,6 @@
                 </form>
             </div>
             <hr>
-            <tt>barber = {{appointment.barber_id}}</tt><br/>
             <tt>client = {{appointment.user_id}}</tt><br/>
             <tt>times = {{appointment.time}}</tt><br/>
 

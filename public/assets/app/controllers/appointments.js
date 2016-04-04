@@ -14,9 +14,9 @@ app.controller('appointmentsController', function($scope, $http, API_URL) {
         });
 
     //retrieve barbers listing from API
-    $http.get(API_URL + "users")
+    $http.get(API_URL + "barbers")
         .success(function(response) {
-            $scope.users = response;
+            $scope.barbers = response;
         });
 
 

@@ -167,4 +167,5 @@ class UsersController extends ApiController
     {
         return User::where('role' ,'=', 'Client')->get();
     }
+
 }

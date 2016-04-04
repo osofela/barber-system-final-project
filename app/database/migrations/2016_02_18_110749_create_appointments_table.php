@@ -14,12 +14,12 @@ class CreateAppointmentsTable extends Migration {
 	{
 		Schema::create('appointments',function (Blueprint $table){
 			$table->increments('appointment_id');
-			$table->integer('client_id')->unsigned();
+			$table->integer('user_id')->unsigned();
 			$table->integer('barber_id')->unsigned();
 
 			$table->foreign('barber_id')->references('user_id')
 				->on('users')->onDelete('cascade');
-			$table->foreign('client_id')->references('user_id')
+			$table->foreign('user_id')->references('user_id')
 				->on('users')->onDelete('cascade');
 
 			$table->string('haircut_type');

@@ -34,6 +34,7 @@
         <th>Date</th>
         <th>Start Time</th>
         <th>End Time</th>
+        <th><button id="btn-add" class="btn btn-primary btn-xs" ng-click="toggle('add', 0)">Add New Appointment</button></th>
     </tr>
     </thead>
     <tbody>
@@ -46,10 +47,15 @@
         <td>{{ appointment.date }}</td>
         <td>{{ appointment.start_time }}</td>
         <td>{{ appointment.end_time }}</td>
+        <td>
+            <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit',appointment.appointment_id)">Edit</button>
+            <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(appointment.appointment_id)">Delete</button>
+        </td>
     </tr>
 
     </tbody>
 </table>
+<?php include 'forms/dashboardform.php';?>
 
 </div>
 
