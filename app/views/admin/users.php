@@ -37,7 +37,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="user in users | filter:searchText"">
+        <tr ng-repeat="user in users | filter:searchText">
         <td>{{ user.user_id }}</td>
         <td>{{ user.first_name }}</td>
         <td>{{ user.last_name }}</td>
