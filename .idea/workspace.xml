@@ -4,14 +4,6 @@
     <list default="true" id="d7739cbc-6f53-40d4-9164-a5b5b95ed4ac" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AppointmentsController.php" afterPath="$PROJECT_DIR$/app/controllers/AppointmentsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2016_02_18_110749_create_appointments_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2016_02_18_110749_create_appointments_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/AppointmentsTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/AppointmentsTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Appointment.php" afterPath="$PROJECT_DIR$/app/models/Appointment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/forms/appointmentform.php" afterPath="$PROJECT_DIR$/app/views/admin/forms/appointmentform.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/app/adminApp.js" afterPath="$PROJECT_DIR$/public/assets/app/adminApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/app/controllers/adminAppointments.js" afterPath="$PROJECT_DIR$/public/assets/app/controllers/adminAppointments.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/app/controllers/appointments.js" afterPath="$PROJECT_DIR$/public/assets/app/controllers/appointments.js" />
     </list>
     <ignored path="final_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,31 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.529411">
-              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="appointmentform.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/forms/appointmentform.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-58.333332">
-              <caret line="120" column="45" selection-start-line="120" selection-start-column="45" selection-end-line="120" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminAppointments.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/app/controllers/adminAppointments.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+              <caret line="120" column="45" selection-start-line="120" selection-start-column="45" selection-end-line="120" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -76,7 +48,7 @@
       <file leaf-file-name="appointments.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/appointments.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.083334">
+            <state vertical-scroll-proportion="-5.8333335">
               <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="35" />
               <folding />
             </state>
@@ -86,8 +58,8 @@
       <file leaf-file-name="Appointment.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Appointment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.5833335">
-              <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+            <state vertical-scroll-proportion="-23.333334">
+              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -96,18 +68,8 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.333334">
+            <state vertical-scroll-proportion="0.0">
               <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2016_02_18_110749_create_appointments_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/database/migrations/2016_02_18_110749_create_appointments_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8333335">
-              <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -116,23 +78,53 @@
       <file leaf-file-name="AppointmentsTableSeeder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/database/seeds/AppointmentsTableSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.958333">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state vertical-scroll-proportion="-12.708333">
+              <caret line="55" column="67" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppointmentsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientsController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ClientsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.022058824">
+              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppointmentsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/AppointmentsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6911765">
-              <caret line="148" column="58" selection-start-line="148" selection-start-column="58" selection-end-line="148" selection-end-column="58" />
+            <state vertical-scroll-proportion="94.791664">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="29" />
               <folding>
                 <element signature="e#7#52#0#PHP" expanded="true" />
                 <marker date="1459716743000" expanded="true" signature="4871:4904" placeholder="SELECT * FRO... appointments" />
                 <marker date="1459716743000" expanded="true" signature="4871:4927" placeholder="SELECT * FRO... appointments" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2016_02_18_110653_create_users_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/database/migrations/2016_02_18_110653_create_users_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.25">
+              <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersTableSeeder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/database/seeds/UsersTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.583333">
+              <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -260,7 +252,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -583,6 +574,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -823,14 +815,20 @@
       <option name="project" value="LOCAL" />
       <updated>1459517776770</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Client Dashboard Added">
+      <created>1459722485242</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1459722485242</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28513733" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28917608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -936,13 +934,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/bootstrap.css.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/bootstrap.min.css">
@@ -1015,13 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2016_02_18_110653_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.25">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/auth/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.833334">
@@ -1078,13 +1069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/UsersTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/client/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1110,7 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="41" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1118,7 +1101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="148" column="7" selection-start-line="148" selection-start-column="7" selection-end-line="148" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1126,7 +1108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,7 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1142,7 +1122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="85" column="70" selection-start-line="85" selection-start-column="70" selection-end-line="85" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,15 +1129,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ClientsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.875">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,7 +1136,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,7 +1143,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="49" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,7 +1150,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="60" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1190,7 +1157,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="60" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1204,31 +1170,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2016_02_18_110749_create_appointments_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8333335">
+        <state vertical-scroll-proportion="0.0">
           <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/appointments.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.083334">
-          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/AppointmentsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.958333">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.529411">
+        <state vertical-scroll-proportion="0.0">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding />
         </state>
@@ -1236,7 +1186,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/forms/appointmentform.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-58.333332">
+        <state vertical-scroll-proportion="0.0">
           <caret line="120" column="45" selection-start-line="120" selection-start-column="45" selection-end-line="120" selection-end-column="45" />
           <folding />
         </state>
@@ -1252,7 +1202,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.333334">
+        <state vertical-scroll-proportion="0.0">
           <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
           <folding />
         </state>
@@ -1260,21 +1210,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Appointment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5833335">
-          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+        <state vertical-scroll-proportion="-23.333334">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/appointments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8333335">
+          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AppointmentsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6911765">
-          <caret line="148" column="58" selection-start-line="148" selection-start-column="58" selection-end-line="148" selection-end-column="58" />
+        <state vertical-scroll-proportion="94.791664">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="29" />
           <folding>
             <element signature="e#7#52#0#PHP" expanded="true" />
             <marker date="1459716743000" expanded="true" signature="4871:4904" placeholder="SELECT * FRO... appointments" />
             <marker date="1459716743000" expanded="true" signature="4871:4927" placeholder="SELECT * FRO... appointments" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2016_02_18_110653_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/UsersTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.583333">
+          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/AppointmentsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.708333">
+          <caret line="55" column="67" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ClientsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.022058824">
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
