@@ -74,60 +74,41 @@
     <!-- Modal (Pop up when detail button clicked) -->
     <?php include 'forms/appointmentform.php';?>
 
-
 </div>
 
 <div class="container">
         <div class="page-header">
             <h1>UI-Calendar</h1>
         </div>
-        <div class="well">
+
+    <div class="well">
             <div class="row-fluid">
                 <div class="span4">
-                    <h3>What?</h3>
-
-                    <p>Attach Angular objects to a calendar.</p>
-                    <p>Show the data binding between two differnet calendars using the same event sources.</p>
-
                     <div class="btn-group calTools">
                         <button type="button" class="btn btn-primary" ng-click="addEvent()">
                             Add Event
                         </button>
                     </div>
-
-                    <ul class="styled">
-                        <li ng-repeat="e in events" class="ng-scope">
-                            <div class="alert alert-info">
-                                <a class="close" ng-click="remove($index)"><i class="glyphicon glyphicon-remove"></i></a>
-                                <b> <input ng-model="e.title"></b>
-                                {{e.start | date:"MMM dd"}} - {{e.end | date:"MMM dd"}}
-                            </div>
-                        </li>
-                    </ul>
-
                 </div>
 
                 <div class="span8">
-                    <tabset>
-                        <tab select="renderCalender('myCalendar1');">
-                            <tab-heading>
-                                <i class="glyphicon glyphicon-bell"></i> Calendar One
-                            </tab-heading>
                             <div class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
                                 <h4>{{alertMessage}}</h4>
                             </div>
-                            <div class="btn-toolbar">
-                                <p class="pull-right lead">Calendar One View Options</p>
-                                <div class="btn-group">
-                                    <button class="btn btn-success" ng-click="changeView('agendaDay', 'myCalendar1')">AgendaDay</button>
-                                    <button class="btn btn-success" ng-click="changeView('agendaWeek', 'myCalendar1')">AgendaWeek</button>
-                                    <button class="btn btn-success" ng-click="changeView('month', 'myCalendar1')">Month</button>
-                                </div>
-                            </div>
-                            <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
-                        </tab>
-                    </tabset>
+
+                            <div class="calendar" ng-model="eventSources" ui-calendar="uiConfig" ng-click="toggle('add', 0)""></div>
                 </div>
+
+                <ul class="list-unstyled">
+                    <li ng-repeat="e in events" class="ng-scope">
+                        <div class="alert alert-info">
+                            <a class="close" ng-click="remove($index)"><i class="glyphicon glyphicon-remove"></i></a>
+                            <b> <input ng-model="e.title"></b>
+                            {{e.start | date:"MMM dd"}} - {{e.haircut}} - {{e.music}} - {{e.drink}}  - {{e.start_time}} - {{e.end_time}}
+                        </div>
+                    </li>
+                </ul>
+
             </div>
         </div>
 
