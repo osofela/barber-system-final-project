@@ -9,9 +9,10 @@
     <a href="dashboard">Dashboard</a>
 
     <!-- Load Bootstrap CSS -->
-    <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/bootstrap.css') ?>" rel="stylesheet">
-
+    <link href="<?= asset('assets/css/calendarDemo.css') ?>" rel="stylesheet">
+    <link href="<?= asset('assets/css/fullcalendar-min.css') ?>" rel="stylesheet">
+    <link href="<?= asset('assets/css/fullcalendar-print.css') ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -36,7 +37,11 @@
             <th>Date</th>
             <th>Start Time</th>
             <th>End Time</th>
-            <th><button id="btn-add" class="btn btn-primary btn-xs" ng-click="toggle('add', 0)">Add New Appointment</button></th>
+            <th>
+                <button id="btn-add" class="btn btn-primary btn-sm col-lg-11" ng-click="toggle('add', 0)" data-toggle="tooltip" title="Add">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -52,8 +57,13 @@
             <td>{{ appointment.start_time }}</td>
             <td>{{ appointment.end_time }}</td>
             <td>
-                <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit',appointment.appointment_id)">Edit</button>
-                <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(appointment.appointment_id)">Delete</button>
+                <button class="btn btn-default btn-sm btn-detail" ng-click="toggle('edit',appointment.appointment_id)" data-toggle="tooltip" title="Edit">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </button>
+
+                <button class="btn btn-danger btn-sm btn-delete" ng-click="confirmDelete(appointment.appointment_id)" data-toggle="tooltip" title="Delete">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </button>
             </td>
         </tr>
 
@@ -64,14 +74,76 @@
     <!-- Modal (Pop up when detail button clicked) -->
     <?php include 'forms/appointmentform.php';?>
 
+
 </div>
+
+<div class="container">
+        <div class="page-header">
+            <h1>UI-Calendar</h1>
+        </div>
+        <div class="well">
+            <div class="row-fluid">
+                <div class="span4">
+                    <h3>What?</h3>
+
+                    <p>Attach Angular objects to a calendar.</p>
+                    <p>Show the data binding between two differnet calendars using the same event sources.</p>
+
+                    <div class="btn-group calTools">
+                        <button type="button" class="btn btn-primary" ng-click="addEvent()">
+                            Add Event
+                        </button>
+                    </div>
+
+                    <ul class="styled">
+                        <li ng-repeat="e in events" class="ng-scope">
+                            <div class="alert alert-info">
+                                <a class="close" ng-click="remove($index)"><i class="glyphicon glyphicon-remove"></i></a>
+                                <b> <input ng-model="e.title"></b>
+                                {{e.start | date:"MMM dd"}} - {{e.end | date:"MMM dd"}}
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="span8">
+                    <tabset>
+                        <tab select="renderCalender('myCalendar1');">
+                            <tab-heading>
+                                <i class="glyphicon glyphicon-bell"></i> Calendar One
+                            </tab-heading>
+                            <div class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
+                                <h4>{{alertMessage}}</h4>
+                            </div>
+                            <div class="btn-toolbar">
+                                <p class="pull-right lead">Calendar One View Options</p>
+                                <div class="btn-group">
+                                    <button class="btn btn-success" ng-click="changeView('agendaDay', 'myCalendar1')">AgendaDay</button>
+                                    <button class="btn btn-success" ng-click="changeView('agendaWeek', 'myCalendar1')">AgendaWeek</button>
+                                    <button class="btn btn-success" ng-click="changeView('month', 'myCalendar1')">Month</button>
+                                </div>
+                            </div>
+                            <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
+                        </tab>
+                    </tabset>
+                </div>
+            </div>
+        </div>
+
 
 
 <!-- Load Javascript Libraries (AngularJS, JQuery, Bootstrap) -->
 <script src="<?= asset('assets/app/lib/angular/angular.min.js') ?>"></script>
+<script src="<?= asset('assets/app/lib/angular/angular-ui-calendar.js') ?>"></script>
 <script src="<?= asset('assets/js/ui-bootstrap-tpls-1.2.5.min.js') ?>"></script>
 <script src="<?= asset('assets/js/jquery.min.js') ?>"></script>
 <script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
+<script src="<?= asset('assets/js/moment.js') ?>"></script>
+<script src="<?= asset('assets/js/fullcalendar.js') ?>"></script>
+
+
+
 
 
 <!-- AngularJS Application Scripts -->

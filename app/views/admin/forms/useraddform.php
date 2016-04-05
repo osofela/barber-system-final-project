@@ -105,7 +105,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, user.user_id)" ng-disabled="frmAddUsers.$invalid">Save</button>
+                <button type="button" class="btn btn-primary glyphicon glyphicon-save" id="btn-save" data-toggle="tooltip" title="Save" ng-click="save(modalstate, user.user_id)" ng-disabled="frmAddUsers.$invalid"></button>
             </div>
         </div>
     </div>

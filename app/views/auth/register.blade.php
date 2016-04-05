@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default">Register</button>
+                        <button type="submit" class="btn btn-default">Sign up</button>
                     </div>
 
                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">

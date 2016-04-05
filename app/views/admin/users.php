@@ -33,7 +33,11 @@
             <th>Email</th>
             <th>Telephone</th>
             <th>Role</th>
-            <th><button id="btn-add" class="btn btn-primary btn-xs" ng-click="toggle('add', 0)">Add New Barber</button></th>
+            <th>
+                <button id="btn-add" class="btn btn-primary btn-sm col-lg-7" ng-click="toggle('add', 0)" data-toggle="tooltip" title="Add">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -46,8 +50,13 @@
         <td>{{ user.telephone }}</td>
         <td>{{ user.role }}</td>
         <td>
-            <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit', user.user_id)">Edit</button>
-            <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(user.user_id)">Delete</button>
+            <button class="btn btn-default btn-sm btn-detail" ng-click="toggle('edit', user.user_id)" data-toggle="tooltip" title="Edit">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </button>
+
+            <button class="btn btn-danger btn-sm btn-delete" ng-click="confirmDelete(user.user_id)" data-toggle="tooltip" title="Delete">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
         </td>
         </tr>
         </tbody>
