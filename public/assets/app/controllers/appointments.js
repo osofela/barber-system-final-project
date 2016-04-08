@@ -21,6 +21,12 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
     $scope.events = [
     ];
 
+    $scope.showSides = function()
+    {
+
+    };
+
+
 
 
 

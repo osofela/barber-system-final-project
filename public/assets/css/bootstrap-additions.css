@@ -801,6 +801,8 @@
     left: 0;
     z-index: 1040;
     background-color: #000000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
 }
 .aside-backdrop.fade {
     opacity: 0;

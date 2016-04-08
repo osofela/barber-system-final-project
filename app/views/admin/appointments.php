@@ -11,6 +11,7 @@
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/bootstrap-additions.css') ?>" rel="stylesheet">
+    <link href="<?= asset('assets/css/angular-motion.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/calendarDemo.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/fullcalendar-min.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/fullcalendar-print.css') ?>" media="print" rel="stylesheet">
@@ -77,7 +78,7 @@
 <!-- Modal (Pop up when detail button clicked) -->
 <?php include 'forms/appointmentform.php';?>
 
-<button type="button" class="btn btn-lg btn-primary" bs-aside="aside" data-container="body">Click to toggle aside
+<button type="button" class="btn btn-lg btn-primary" bs-aside="aside">Click to toggle aside
     <br>
     <small>(using an object)</small>
 </button>
@@ -102,7 +103,7 @@
                     <h4>{{alertMessage}}</h4>
                 </div>
             </div>
-            <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ng-click="showEvent()" ui-calendar="uiConfig.calendar"></div>
+            <div class="calendar" ng-model="eventSources"  calendar="myCalendar1" ng-click="showSides()" ui-calendar="uiConfig.calendar"></div>
 
             <ul class="list-unstyled">
                 <li ng-repeat="e in events" class="ng-scope">
@@ -124,10 +125,12 @@
 
 
     <script src="<?= asset('assets/app/lib/angular/angular.min.js') ?>"></script>
+    <script src="<?= asset('assets/app/lib/angular/angular-animate.min.js') ?>"></script>
     <script src="<?= asset('assets/app/lib/angular/angular-ui-calendar.js') ?>"></script>
     <script src="<?= asset('assets/js/ui-bootstrap-tpls-1.2.5.min.js') ?>"></script>
     <script src="<?= asset('assets/js/jquery.min.js') ?>"></script>
     <script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
+
     <script src="<?= asset('assets/js/moment.js') ?>"></script>
     <script src="<?= asset('assets/js/fullcalendar.js') ?>"></script>
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.8/angular-strap.min.js"></script>
