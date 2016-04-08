@@ -300,7 +300,7 @@ angular.module('ui.calendar', [])
 
                 eventsWatcher.onAdded = function(event) {
                     if (calendar && calendar.fullCalendar) {
-                        calendar.fullCalendar('renderEvent', event, (event.stick ? true : false));
+                        calendar.fullCalendar('renderEvent', event,true);
                     }
                 };
 

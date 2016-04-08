@@ -3,6 +3,11 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
 
     $scope.showTimes = true;
 
+    $scope.aside = {
+        "title": "Title",
+        "content": "Hello Aside <br />This is a multiline message!"
+    };
+
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -12,11 +17,12 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
     $scope.eventSource = {
     };
 
-
-
     /* event source that contains custom events on the scope */
     $scope.events = [
     ];
+
+
+
 
 
     /* alert on eventClick */
@@ -50,7 +56,8 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
             title: 'Open Sesame',
             start: new Date(y, m, 28),
             end: new Date(y, m, 29),
-            className: ['openSesame']
+            className: ['openSesame'],
+
         });
     };
     /* remove event */
@@ -68,8 +75,10 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
     };
     /* Render Tooltip */
     $scope.eventRender = function( event, element, view ) {
+        element.attr("haircut",event.haircut);
         element.attr({'tooltip': event.title,
             'tooltip-append-to-body': true});
+
         $compile(element)($scope);
     };
     /* config object */
@@ -79,8 +88,8 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
             editable: true,
             header:{
                 left: 'prev',
-                center: 'title',
-                right: 'next'
+                center: 'title,today',
+                right: 'next',
             },
             eventClick: $scope.alertOnEventClick,
             eventDrop: $scope.alertOnDrop,
@@ -88,16 +97,6 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
             eventRender: $scope.eventRender
         }
     };
-
-
-    /* event sources array*/
-    $scope.eventSources = [$scope.events, $scope.eventSource];
-
-    //get logged in user
-    $http.get(API_URL + "user")
-        .success(function(response) {
-            $scope.loggedInUser = response;
-        });
 
     $http.get(API_URL + "appointments")
         .success(function(response) {
@@ -115,6 +114,18 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
                 });
             })
         });
+
+
+    /* event sources array*/
+    $scope.eventSources = [$scope.events, $scope.eventSource];
+
+    //get logged in user
+    $http.get(API_URL + "user")
+        .success(function(response) {
+            $scope.loggedInUser = response;
+        });
+
+
 
     //retrieve barbers listing from API
     $http.get(API_URL + "barbers")
@@ -156,7 +167,6 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
                 break;
             default:
                 break;
-
         }
         $('#myModal').modal('show');
     };

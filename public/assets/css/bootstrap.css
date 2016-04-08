@@ -4,6 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1078,6 +1079,8 @@ th {
 .glyphicon-menu-up:before {
   content: "\e260";
 }
+
+
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;

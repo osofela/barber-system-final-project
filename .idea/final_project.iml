@@ -4,5 +4,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="angular" level="application" />
+    <orderEntry type="library" name="angular-strap" level="application" />
+    <orderEntry type="library" name="angular-strap.tpl" level="application" />
   </component>
 </module>

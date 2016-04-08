@@ -22,9 +22,9 @@ class AppointmentsTableSeeder extends Seeder
             'music_choice' => 'Hip Hop/Rap',
             'music_artist' => 'Drake',
             'drink_choice' => 'Tea',
-            'date' => \Carbon\Carbon::now(),
-            'start_time' => \Carbon\Carbon::now()->toDateTimeString(),
-            'end_time' => \Carbon\Carbon::now()->toDateTimeString(),
+            'date' =>   \Carbon\Carbon::createFromDate(null, 4, 7),
+            'start_time' => \Carbon\Carbon::create(null, null, null, 9)->toDateTimeString(),
+            'end_time' => \Carbon\Carbon::create(null, null, null, 9,40)->toDateTimeString(),
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
         ]);
@@ -36,9 +36,9 @@ class AppointmentsTableSeeder extends Seeder
             'music_choice' => 'Hip Hop/Rap',
             'music_artist' => 'Logic',
             'drink_choice' => 'Coke Cola',
-            'date' => \Carbon\Carbon::now(),
-            'start_time' => \Carbon\Carbon::now()->toDateTimeString(),
-            'end_time' => \Carbon\Carbon::now()->toDateTimeString(),
+            'date' =>   \Carbon\Carbon::createFromDate(null, 4, 7),
+            'start_time' => \Carbon\Carbon::create(null, null, null, 9,40)->toDateTimeString(),
+            'end_time' => \Carbon\Carbon::create(null, null, null, 10,20)->toDateTimeString(),
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
         ]);
@@ -50,9 +50,9 @@ class AppointmentsTableSeeder extends Seeder
             'music_choice' => 'Hip Hop/Rap',
             'music_artist' => 'J Cole',
             'drink_choice' => 'Coffee',
-            'date' => \Carbon\Carbon::now(),
-            'start_time' => \Carbon\Carbon::now()->toDateTimeString(),
-            'end_time' => \Carbon\Carbon::now()->toDateTimeString(),
+            'date' =>   \Carbon\Carbon::createFromDate(null, 4, 8),
+            'start_time' => \Carbon\Carbon::create(null, null, null, 9)->toDateTimeString(),
+            'end_time' => \Carbon\Carbon::create(null, null, null, 10)->toDateTimeString(),
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
         ]);
@@ -64,9 +64,9 @@ class AppointmentsTableSeeder extends Seeder
             'music_choice' => 'Hip Hop/Rap',
             'music_artist' => 'J Cole',
             'drink_choice' => 'Coffee',
-            'date' => \Carbon\Carbon::now(),
-            'start_time' => \Carbon\Carbon::now()->toDateTimeString(),
-            'end_time' => \Carbon\Carbon::now()->toDateTimeString(),
+            'date' =>   \Carbon\Carbon::createFromDate(null, 4, 8),
+            'start_time' => \Carbon\Carbon::create(null, null, null, 10)->toDateTimeString(),
+            'end_time' => \Carbon\Carbon::create(null, null, null, 11)->toDateTimeString(),
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
         ]);
