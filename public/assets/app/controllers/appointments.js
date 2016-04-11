@@ -110,7 +110,7 @@ app.controller('appointmentsController', function($scope,$aside, $http, API_URL,
             $scope.appointments = response;
             angular.forEach($scope.appointments,function(value,index){
                 $scope.events.push({
-                    title: value.barber.first_name + " " + value.client.first_name,
+                    title: value.start_time  + " "+value.barber.first_name + " " + value.client.first_name,
                     appointment_id: value.appointment_id,
                     client_id: value.user_id,
                     barber_id: value.barber_id,
