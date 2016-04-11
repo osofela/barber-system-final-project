@@ -5,8 +5,8 @@
     <h1>Admin Page</h1>
     <h3>Hello {{loggedInUser.first_name}} {{loggedInUser.last_name}}</h3>
     <a href="/auth/logout">Logout</a>
-    <a href="users">Users</a>
-    <a href="dashboard">Dashboard</a>
+    <a href="/api/v1/admin/users">Users</a>
+    <a href="/api/v1/admin/dashboard">Dashboard</a>
 
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.css') ?>" rel="stylesheet">
@@ -98,17 +98,8 @@
                     <h4>{{alertMessage}}</h4>
                 </div>
             </div>
-                <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
-            <ul class="list-unstyled">
-                <li ng-repeat="e in events" class="ng-scope">
-                    <div class="alert alert-info">
-                        <a class="close" ng-click="remove($index)"><i class="glyphicon glyphicon-remove"></i></a>
-                        <b> <input ng-model="e.title" readonly="readonly"></b>
-                        {{e.start | date:"MMM-dd-yy"}} - {{e.start_time}} - {{e.end_time}}
-                    </div>
-                </li>
-            </ul>
-
+                <div id="calendar" class="calendar" ng-model="eventSources" calendar="myCalendar" ui-calendar="uiConfig.calendar"></div>
+            
         </div>
     </div>
 
@@ -121,14 +112,14 @@
     <script src="<?= asset('assets/app/lib/angular/angular.min.js') ?>"></script>
     <script src="<?= asset('assets/app/lib/angular/angular-animate.min.js') ?>"></script>
     <script src="<?= asset('assets/app/lib/angular/angular-sanitize.min.js') ?>"></script>
+    <script src="<?= asset('assets/js/jquery.min.js') ?>"></script>
+    <script src="<?= asset('assets/js/moment.js') ?>"></script>
     <script src="<?= asset('assets/app/lib/angular/angular-ui-calendar.js') ?>"></script>
     <script src="<?= asset('assets/js/ui-bootstrap-tpls-1.2.5.min.js') ?>"></script>
-    <script src="<?= asset('assets/js/jquery.min.js') ?>"></script>
     <script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
 
-    <script src="<?= asset('assets/js/moment.js') ?>"></script>
+
     <script src="<?= asset('assets/js/fullcalendar.js') ?>"></script>
-    <script src="<?= asset('assets/js/aside.js') ?>"></script>
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.8/angular-strap.min.js"></script>
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.8/angular-strap.tpl.min.js"></script>
 

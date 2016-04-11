@@ -5,8 +5,8 @@
     <h1>Admin Dashboard</h1>
     <h3>Hello {{loggedInUser.first_name}} {{loggedInUser.last_name}}</h3>
     <a href="/auth/logout">Logout</a>
-    <a href="users">Users</a>
-    <a href="appointments">Appointments</a>
+    <a href="/api/v1/admin/users">Users</a>
+    <a href="/api/v1/admin/appointments">Appointments</a>
 
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">

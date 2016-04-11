@@ -81,11 +81,11 @@ class AppointmentsController extends ApiController {
         $appointment->drink_choice = Input::get('drink_choice');
         $appointment->date = Carbon::parse(Input::get('date'));
 
-        $times = json_decode(Input::get('time'),true);
-
-        $appointment->start_time = $times['start_time'];
-
-        $appointment->end_time = $times['end_time'];
+//        $times = json_decode(Input::get('time'),true);
+//
+//        $appointment->start_time = $times['start_time'];
+//
+//        $appointment->end_time = $times['end_time'];
 
         $appointment->save();
 
@@ -154,11 +154,11 @@ class AppointmentsController extends ApiController {
         $appointment->drink_choice = Input::get('drink_choice');
         $appointment->date = Carbon::parse(Input::get('date'));
 
-        $times = json_decode(Input::get('time'),true);
-
-        $appointment->start_time = $times['start_time'];
-
-        $appointment->end_time = $times['end_time'];
+//        $times = json_decode(Input::get('time'),true);
+//
+//        $appointment->start_time = $times['start_time'];
+//
+//        $appointment->end_time = $times['end_time'];
 
         $appointment->save();
 
@@ -209,7 +209,7 @@ class AppointmentsController extends ApiController {
 
             $endTime->addMinutes($timeSlot);
 
-            $time = DB::select( DB::raw("SELECT * FROM appointments WHERE start_time = :startTime "),array(
+            $time = DB::select( DB::raw("SELECT * FROM appointments WHERE start_time = :startTime"),array(
                 'startTime' => $startTime->toTimeString()
             ));
 

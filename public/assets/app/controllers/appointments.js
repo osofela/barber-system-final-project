@@ -1,6 +1,10 @@
-app.controller('appointmentsController', function($scope,$aside, $http, API_URL,$compile, $timeout, uiCalendarConfig,$aside)
+app.controller('appointmentsController', function($rootScope,$scope,$aside, $http, API_URL,$compile, $timeout, uiCalendarConfig,$aside)
 {
     $scope.showTimes = true;
+
+    var addEventAside = $aside({scope: $scope, templateUrl: 'forms/neweventform.php', 'container':"body" , title: "Create Event" , show: false});
+    // Pre-fetch an external template populated with a custom scope
+    var editEventAside = $aside({scope: $scope, templateUrl: 'forms/eventform.php', 'container':"body" , title: "Edit Event" , show: false});
 
 
 
@@ -24,13 +28,14 @@ app.controller('appointmentsController', function($scope,$aside, $http, API_URL,
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
         $scope.selected_event = date;
-        $scope.selected_event.date = new Date($scope.selected_event.start);
+        //$scope.selected_event.date = new Date($scope.selected_event.date);
+        $scope.selected_event.date = new Date($scope.selected_event.date);
 
-        // Pre-fetch an external template populated with a custom scope
-        var myOtherAside = $aside({scope: $scope, templateUrl: 'forms/eventform.php', 'container':"body" , title: "Edit Event"});
+        console.log($scope.selected_event.date);
+
         // Show when some event occurs (use $promise property to ensure the template has been loaded)
-        myOtherAside.$promise.then(function() {
-            myOtherAside.show();
+        editEventAside.$promise.then(function() {
+            editEventAside.show();
         });
     };
     /* alert on Drop */
@@ -55,16 +60,113 @@ app.controller('appointmentsController', function($scope,$aside, $http, API_URL,
         }
     };
 
+    $scope.createEvent = function()
+    {
+        var url = API_URL + "appointments";
+
+        var appointment = {
+            user_id: $scope.new_event.user_id,
+            barber_id: $scope.new_event.barber_id,
+            haircut_type: $scope.new_event.haircut_type,
+            music_choice: $scope.new_event.music_choice,
+            music_artist: $scope.new_event.music_artist,
+            drink_choice: $scope.new_event.drink_choice,
+            date: $scope.new_event.date
+        };
+
+        $http({
+            method: 'POST',
+            url: url,
+            data: appointment,
+        }).success(function(response) {
+            console.log(response);
+            addEventAside.hide();
+            $scope.reloadCalendar();
+        }).error(function(response) {
+            console.log(response);
+            alert('This is embarassing. An error has occured. Please check the log for details');
+        });
+
+
+
+
+
+    };
+
+    $scope.updateEvent = function(appointment_id)
+    {
+        console.log($scope.selected_event);
+        console.log(appointment_id);
+
+        var url = API_URL + "appointments" + "/" + appointment_id;
+
+        var appointment = {
+            appointment_id: $scope.selected_event.appointment_id,
+            user_id: $scope.selected_event.user_id,
+            barber_id: $scope.selected_event.barber_id,
+            haircut_type: $scope.selected_event.haircut_type,
+            music_choice: $scope.selected_event.music_choice,
+            music_artist: $scope.selected_event.music_artist,
+            drink_choice: $scope.selected_event.drink_choice,
+            date: $scope.selected_event.date
+        };
+
+        $http({
+            method: 'POST',
+            url: url,
+            data: appointment,
+        }).success(function(response) {
+            console.log(response);
+            editEventAside.hide();
+            $scope.reloadCalendar();
+        }).error(function(response) {
+            console.log(response);
+            alert('This is embarassing. An error has occured. Please check the log for details');
+        });
+
+        console.log(uiCalendarConfig.calendars['myCalendar']);
+
+    };
+
+    $scope.reloadCalendar = function()
+    {
+        $('#calendar').fullCalendar('removeEvents');
+
+        $scope.getAppointments();
+    };
+
+
+
+
     /* add custom event*/
     $scope.addEvent = function() {
 
-        $scope.selected_event = null;
-        // Pre-fetch an external template populated with a custom scope
-        var newEvent = $aside({scope: $scope, templateUrl: 'forms/neweventform.php', 'container':"body" , title: "New Event"});
-        // Show when some event occurs (use $promise property to ensure the template has been loaded)
-        newEvent.$promise.then(function() {
-            newEvent.show();
+        addEventAside.$promise.then(function() {
+            addEventAside.show();
         });
+    };
+
+    $scope.getAppointments = function()
+    {
+        $http.get(API_URL + "appointments")
+            .success(function(response) {
+                $scope.appointments = response;
+                angular.forEach($scope.appointments,function(value,index){
+                    $scope.events.push({
+                        title: value.start_time  + " "+value.barber.first_name + " " + value.client.first_name,
+                        appointment_id: value.appointment_id,
+                        user_id: value.user_id,
+                        barber_id: value.barber_id,
+                        haircut_type: value.haircut_type,
+                        music_choice: value.music_choice,
+                        music_artist: value.music_artist,
+                        drink_choice: value.drink_choice,
+                        date: value.date,
+                        start_time: value.start_time,
+                        end_time: value.end_time,
+                    });
+                })
+            });
     };
 
     /* remove event */
@@ -82,7 +184,6 @@ app.controller('appointmentsController', function($scope,$aside, $http, API_URL,
     };
     /* Render Tooltip */
     $scope.eventRender = function( event, element, view ) {
-        element.attr("haircut",event.haircut);
         element.attr({'tooltip': event.title,
             'tooltip-append-to-body': true});
 
@@ -105,30 +206,14 @@ app.controller('appointmentsController', function($scope,$aside, $http, API_URL,
         }
     };
 
-    $http.get(API_URL + "appointments")
-        .success(function(response) {
-            $scope.appointments = response;
-            angular.forEach($scope.appointments,function(value,index){
-                $scope.events.push({
-                    title: value.start_time  + " "+value.barber.first_name + " " + value.client.first_name,
-                    appointment_id: value.appointment_id,
-                    client_id: value.user_id,
-                    barber_id: value.barber_id,
-                    haircut_type: value.haircut_type,
-                    music_choice: value.music_choice,
-                    music_artist: value.music_artist,
-                    drink: value.drink_choice,
-                    start: value.date,
-                    end: value.date,
-                    start_time: value.start_time,
-                    end_time: value.end_time,
-                });
-            })
-        });
+
 
 
     /* event sources array*/
     $scope.eventSources = [$scope.events, $scope.eventSource];
+
+    //get appointments and load onto calendar.
+    $scope.getAppointments();
 
     //get logged in user
     $http.get(API_URL + "user")
@@ -195,7 +280,6 @@ app.controller('appointmentsController', function($scope,$aside, $http, API_URL,
             method: 'POST',
             url: url,
             data: $.param($scope.appointment),
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(response) {
             console.log(response);
             location.reload();
@@ -205,6 +289,30 @@ app.controller('appointmentsController', function($scope,$aside, $http, API_URL,
         });
     };
 
+    $scope.removeEvent = function(appointment_id)
+    {
+        var isConfirmDelete = confirm('Are you sure you want this event?');
+        if (isConfirmDelete) {
+            $http({
+                method: 'DELETE',
+                url: API_URL + 'appointments/' + appointment_id,
+            }).
+            success(function(data) {
+                console.log(data);
+                editEventAside.hide();
+                $scope.reloadCalendar();
+            }).
+            error(function(data) {
+                console.log(data);
+                alert('Unable to delete');
+            });
+
+
+
+        } else {
+            return false;
+        }
+    };
     //delete record
     $scope.confirmDelete = function(id) {
         var isConfirmDelete = confirm('Are you sure you want this record?');

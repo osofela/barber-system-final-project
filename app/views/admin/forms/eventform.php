@@ -13,12 +13,12 @@
                     <div class="form-group error">
                         <label for="inputEmail3" class="col-sm-3 control-label">Client</label>
                         <div class="col-sm-5">
-                            <select name="user_id" id="user_id" ng-model="selected_event.client_id" class="form-control" ng-required="true">
+                            <select name="user_id" id="user_id" ng-model="selected_event.user_id" class="form-control" ng-required="true">
                                 <option ng-repeat="client in clients" value="{{client.user_id}}"
-                                        ng-selected="client.user_id == selected_event.client_id" >{{client.first_name}} {{client.last_name}}</option>
+                                        ng-selected="client.user_id == selected_event.user_id" >{{client.first_name}} {{client.last_name}}</option>
                             </select>
                                     <span class="help-inline"
-                                          ng-show="frmAppointments.client.$invalid && frmAppointments.client.$touched">Client field is required</span>
+                                          ng-show="frmAppointments.user_id.$invalid && frmAppointments.user_id.$touched">Client field is required</span>
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                                 <option ng-repeat="barber in barbers" value="{{barber.user_id}}"  ng-selected="barber.user_id == selected_event.barber_id">{{barber.first_name}} {{barber.last_name}}</option>
                             </select>
                                     <span class="help-inline"
-                                          ng-show="frmAppointments.barber.$invalid && frmAppointments.barber.$touched">Barber field is required</span>
+                                          ng-show="frmAppointments.barber_id.$invalid && frmAppointments.barber_id.$touched">Barber field is required</span>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-3 control-label">Drink Choice</label>
                         <div class="col-sm-5">
-                            <select ng-model="selected_event.drink" class="form-control" id="drink_choice" name="drink_choice" placeholder="Drink Choice"
+                            <select ng-model="selected_event.drink_choice" class="form-control" id="drink_choice" name="drink_choice" placeholder="Drink Choice"
                                     value="{{drink_choice}}" ng-required="true">
                                 <option value="None">None</option>
                                 <option value="Water">Water</option>
@@ -109,7 +109,7 @@
 
             </div>
             <tt>barber = {{selected_event.barber_id}}</tt><br/>
-            <tt>client = {{selected_event.client_id}}</tt><br/>
+            <tt>client = {{selected_event.user_id}}</tt><br/>
             <tt>times = {{appointment.time}}</tt><br/>
             {{selected_event.title}}
             {{selected_event.haircut}}
@@ -121,7 +121,8 @@
             {{selected_event.end_time}}
             <div class="aside-footer">
                 <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="$hide()">Save changes</button>
+                <button class="btn btn-danger" ng-click="removeEvent(selected_event.appointment_id)" data-toggle="tooltip" title="Delete">Delete</button>
+                <button type="button" class="btn btn-primary" id="btn-save" data-toggle="tooltip" title="Save" ng-click="updateEvent(selected_event.appointment_id)" ng-disabled="frmAppointments.$invalid">Save</button>
             </div>
         </div>
     </div>
