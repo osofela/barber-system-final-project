@@ -78,18 +78,13 @@
 <!-- Modal (Pop up when detail button clicked) -->
 <?php include 'forms/appointmentform.php';?>
 
-<button type="button" class="btn btn-lg btn-primary" bs-aside="aside">Click to toggle aside
-    <br>
-    <small>(using an object)</small>
-</button>
-
 <div class="container">
     <div class="page-header">
         <h1>UI-Calendar</h1>
     </div>
 
     <div class="well">
-        <div class="row-fluid">
+        <aside class="row-fluid">
             <div class="span4">
                 <div class="btn-group calTools">
                     <button type="button" class="btn btn-primary" ng-click="addEvent()">
@@ -103,14 +98,13 @@
                     <h4>{{alertMessage}}</h4>
                 </div>
             </div>
-            <div class="calendar" ng-model="eventSources"  calendar="myCalendar1" ng-click="showSides()" ui-calendar="uiConfig.calendar"></div>
-
+                <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
             <ul class="list-unstyled">
                 <li ng-repeat="e in events" class="ng-scope">
                     <div class="alert alert-info">
                         <a class="close" ng-click="remove($index)"><i class="glyphicon glyphicon-remove"></i></a>
                         <b> <input ng-model="e.title" readonly="readonly"></b>
-                        {{e.start | date:"MMM-dd-yy"}} - {{e.haircut}} - {{e.music}} - {{e.drink}}  - {{e.start_time}} - {{e.end_time}}
+                        {{e.start | date:"MMM-dd-yy"}} - {{e.start_time}} - {{e.end_time}}
                     </div>
                 </li>
             </ul>
@@ -126,6 +120,7 @@
 
     <script src="<?= asset('assets/app/lib/angular/angular.min.js') ?>"></script>
     <script src="<?= asset('assets/app/lib/angular/angular-animate.min.js') ?>"></script>
+    <script src="<?= asset('assets/app/lib/angular/angular-sanitize.min.js') ?>"></script>
     <script src="<?= asset('assets/app/lib/angular/angular-ui-calendar.js') ?>"></script>
     <script src="<?= asset('assets/js/ui-bootstrap-tpls-1.2.5.min.js') ?>"></script>
     <script src="<?= asset('assets/js/jquery.min.js') ?>"></script>
@@ -133,6 +128,7 @@
 
     <script src="<?= asset('assets/js/moment.js') ?>"></script>
     <script src="<?= asset('assets/js/fullcalendar.js') ?>"></script>
+    <script src="<?= asset('assets/js/aside.js') ?>"></script>
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.8/angular-strap.min.js"></script>
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.8/angular-strap.tpl.min.js"></script>
 

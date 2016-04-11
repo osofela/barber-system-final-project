@@ -48,6 +48,17 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 			return View::make('admin/appointments');
 		});
 
+		Route::get('forms/eventform.php',function()
+		{
+			return View::make('admin/forms/eventform');
+		});
+
+		Route::get('forms/neweventform.php',function()
+		{
+			return View::make('admin/forms/neweventform');
+		});
+
+
 		Route::get('users',function()
 		{
 			return View::make('admin/users');

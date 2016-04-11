@@ -1,12 +1,8 @@
-app.controller('appointmentsController', function($scope, $http, API_URL,$compile, $timeout, uiCalendarConfig) {
-    //retrieve appointments listing from API
-
+app.controller('appointmentsController', function($scope,$aside, $http, API_URL,$compile, $timeout, uiCalendarConfig,$aside)
+{
     $scope.showTimes = true;
 
-    $scope.aside = {
-        "title": "Title",
-        "content": "Hello Aside <br />This is a multiline message!"
-    };
+
 
     var date = new Date();
     var d = date.getDate();
@@ -17,23 +13,25 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
     $scope.eventSource = {
     };
 
+    $scope.new_event = {
+    };
+
     /* event source that contains custom events on the scope */
     $scope.events = [
     ];
 
-    $scope.showSides = function()
-    {
-
-    };
-
-
-
-
-
 
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
-        $scope.alertMessage = (date.title + ' was clicked ');
+        $scope.selected_event = date;
+        $scope.selected_event.date = new Date($scope.selected_event.start);
+
+        // Pre-fetch an external template populated with a custom scope
+        var myOtherAside = $aside({scope: $scope, templateUrl: 'forms/eventform.php', 'container':"body" , title: "Edit Event"});
+        // Show when some event occurs (use $promise property to ensure the template has been loaded)
+        myOtherAside.$promise.then(function() {
+            myOtherAside.show();
+        });
     };
     /* alert on Drop */
     $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
@@ -56,16 +54,19 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
             sources.push(source);
         }
     };
+
     /* add custom event*/
     $scope.addEvent = function() {
-        $scope.events.push({
-            title: 'Open Sesame',
-            start: new Date(y, m, 28),
-            end: new Date(y, m, 29),
-            className: ['openSesame'],
 
+        $scope.selected_event = null;
+        // Pre-fetch an external template populated with a custom scope
+        var newEvent = $aside({scope: $scope, templateUrl: 'forms/neweventform.php', 'container':"body" , title: "New Event"});
+        // Show when some event occurs (use $promise property to ensure the template has been loaded)
+        newEvent.$promise.then(function() {
+            newEvent.show();
         });
     };
+
     /* remove event */
     $scope.remove = function(index) {
         $scope.events.splice(index,1);
@@ -110,8 +111,12 @@ app.controller('appointmentsController', function($scope, $http, API_URL,$compil
             angular.forEach($scope.appointments,function(value,index){
                 $scope.events.push({
                     title: value.barber.first_name + " " + value.client.first_name,
-                    haircut: value.haircut_type,
-                    music: value.music_choice + " " + value.music_artist,
+                    appointment_id: value.appointment_id,
+                    client_id: value.user_id,
+                    barber_id: value.barber_id,
+                    haircut_type: value.haircut_type,
+                    music_choice: value.music_choice,
+                    music_artist: value.music_artist,
                     drink: value.drink_choice,
                     start: value.date,
                     end: value.date,
