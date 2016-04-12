@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-3 control-label">Haircut Type</label>
                         <div class="col-sm-7">
-                            <select ng-model="selected_event.haircut_type" class="form-control" id="haircut_type" name="haircut_type" ng-change="getTimes(appointment.haircut_type)" placeholder="Haircut Type" value="{{haircut_type}}"
+                            <select ng-model="selected_event.haircut_type" class="form-control" id="haircut_type" name="haircut_type" ng-change="getTimes(selected_event.haircut_type)" placeholder="Haircut Type" value="{{haircut_type}}"
                                     ng-required="true">
                                 <option value="Dry Cut">Dry Cut</option>
                                 <option value="Wet Cut">Wet Cut</option>
@@ -111,14 +111,8 @@
             <tt>barber = {{selected_event.barber_id}}</tt><br/>
             <tt>client = {{selected_event.user_id}}</tt><br/>
             <tt>times = {{appointment.time}}</tt><br/>
-            {{selected_event.title}}
-            {{selected_event.haircut}}
-            {{selected_event.music}}
-            {{selected_event.drink}}
-            {{selected_event.start}}
-            {{selected_event.end}}
-            {{selected_event.start_time}}
-            {{selected_event.end_time}}
+            <tt>date = {{selected_event.date}}</tt><br/>
+
             <div class="aside-footer">
                 <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
                 <button class="btn btn-danger" ng-click="removeEvent(selected_event.appointment_id)" data-toggle="tooltip" title="Delete">Delete</button>

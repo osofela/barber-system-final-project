@@ -37,7 +37,10 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-3 control-label">Haircut Type</label>
                         <div class="col-sm-5">
-                            <select ng-model="new_event.haircut_type" class="form-control" id="haircut_type" name="haircut_type" ng-change="getTimes(appointment.haircut_type)" placeholder="Haircut Type" value="{{haircut_type}}"
+                            <select ng-model="new_event.haircut_type" class="form-control" id="haircut_type" name="haircut_type"
+                                    ng-change="getTimes(new_event.haircut_type,new_event.date)"
+                                    placeholder="Haircut Type"
+                                    value="{{haircut_type}}"
                                     ng-required="true">
                                 <option value="Dry Cut">Dry Cut</option>
                                 <option value="Wet Cut">Wet Cut</option>
@@ -100,9 +103,24 @@
                         <label for="inputEmail3" class="col-sm-3 control-label">Date</label>
                         <div class="col-sm-7">
                             <input type="date" class="form-control" id="date" name="date" placeholder="Date" value="{{date}}"
-                                   ng-model="new_event.date" ng-required="true">
+                                   ng-model="new_event.date"
+                                   ng-change="getTimes(new_event.haircut_type,new_event.date)"
+                                   ng-required="true">
                             <span class="help-inline"
                                   ng-show="addEvent.date.$invalid && addEvent.date.$touched">Date field is required</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" ng-disabled="addEvent.date.$invalid || addEvent.haircut_type.$invalid" ng-click="showTimes = !showTimes">Get Available Times</button>
+                    <hr>
+                    <div uib-collapse="showTimes">
+                        <div class="form-group">
+                            <div class="col-sm-7">
+                                <select name="time" id="time" ng-model="new_event.time" class="form-control">
+                                    <option ng-repeat="time in times" value="{{time}}">
+                                        {{time.start_time}} {{time.end_time}}</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
@@ -111,6 +129,8 @@
             </div>
             <tt>barber = {{new_event.barber_id}}</tt><br/>
             <tt>client = {{new_event.user_id}}</tt><br/>
+            <tt>date = {{new_event.date}}</tt><br/>
+
 
             <div class="aside-footer">
                 <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>

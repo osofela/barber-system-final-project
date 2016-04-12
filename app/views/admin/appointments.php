@@ -57,7 +57,7 @@
         <td>{{ appointment.music_choice  }}</td>
         <td>{{ appointment.music_artist  }}</td>
         <td>{{ appointment.drink_choice }}</td>
-        <td>{{ appointment.date }}</td>
+        <td>{{ appointment.appointment_date }}</td>
         <td>{{ appointment.start_time }}</td>
         <td>{{ appointment.end_time }}</td>
         <td>
@@ -93,13 +93,8 @@
                 </div>
             </div>
 
-            <div class="span8">
-                <div class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
-                    <h4>{{alertMessage}}</h4>
-                </div>
-            </div>
                 <div id="calendar" class="calendar" ng-model="eventSources" calendar="myCalendar" ui-calendar="uiConfig.calendar"></div>
-            
+
         </div>
     </div>
 
@@ -117,8 +112,6 @@
     <script src="<?= asset('assets/app/lib/angular/angular-ui-calendar.js') ?>"></script>
     <script src="<?= asset('assets/js/ui-bootstrap-tpls-1.2.5.min.js') ?>"></script>
     <script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
-
-
     <script src="<?= asset('assets/js/fullcalendar.js') ?>"></script>
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.8/angular-strap.min.js"></script>
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.8/angular-strap.tpl.min.js"></script>

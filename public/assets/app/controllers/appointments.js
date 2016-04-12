@@ -1,4 +1,4 @@
-app.controller('appointmentsController', function($rootScope,$scope,$aside, $http, API_URL,$compile, $timeout, uiCalendarConfig,$aside)
+app.controller('appointmentsController', function($rootScope,$scope,$http, API_URL,$compile, $timeout, uiCalendarConfig,$aside,$alert)
 {
     $scope.showTimes = true;
 
@@ -64,6 +64,9 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
     {
         var url = API_URL + "appointments";
 
+        console.log($scope.new_event.date);
+
+
         var appointment = {
             user_id: $scope.new_event.user_id,
             barber_id: $scope.new_event.barber_id,
@@ -71,7 +74,8 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
             music_choice: $scope.new_event.music_choice,
             music_artist: $scope.new_event.music_artist,
             drink_choice: $scope.new_event.drink_choice,
-            date: $scope.new_event.date
+            date: $scope.new_event.date,
+            time: $scope.new_event.time
         };
 
         $http({
@@ -87,6 +91,9 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
             alert('This is embarassing. An error has occured. Please check the log for details');
         });
 
+        var createAlert = $alert({title: 'Event Created!', content: 'Your event has been created.', placement: 'top',
+            type: 'info',duration: 3,
+            container: 'body',animation: 'am-fade-and-slide-top', show: true});
 
 
 
@@ -109,6 +116,7 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
             music_artist: $scope.selected_event.music_artist,
             drink_choice: $scope.selected_event.drink_choice,
             date: $scope.selected_event.date
+
         };
 
         $http({
@@ -125,6 +133,10 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
         });
 
         console.log(uiCalendarConfig.calendars['myCalendar']);
+        var updateAlert = $alert({title: 'Event Updated!', content: 'Your event has been updated.', placement: 'top',
+            type: 'info',duration: 3,
+            container: 'body',animation: 'am-fade-and-slide-top', show: true});
+
 
     };
 
@@ -140,6 +152,8 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
 
     /* add custom event*/
     $scope.addEvent = function() {
+
+        $scope.new_event.date = new Date();
 
         addEventAside.$promise.then(function() {
             addEventAside.show();
@@ -161,7 +175,7 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
                         music_choice: value.music_choice,
                         music_artist: value.music_artist,
                         drink_choice: value.drink_choice,
-                        date: value.date,
+                        date: value.appointment_date,
                         start_time: value.start_time,
                         end_time: value.end_time,
                     });
@@ -254,7 +268,7 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
                     .success(function(response) {
                         console.log(response);
                         $scope.appointment = response;
-                        $scope.appointment.date = new Date($scope.appointment.date);
+                        $scope.appointment.appointment_date = new Date($scope.appointment.appointment_date);
                         console.log(id);
 
                     });
@@ -301,6 +315,9 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
                 console.log(data);
                 editEventAside.hide();
                 $scope.reloadCalendar();
+                var removeAlert = $alert({title: 'Event Deleted!', content: 'Your event has been deleted.', placement: 'top',
+                    type: 'danger',duration: 3,container: 'body',
+                    animation: 'am-fade-and-slide-top', show: true});
             }).
             error(function(data) {
                 console.log(data);
@@ -334,8 +351,15 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
         }
     };
 
-    $scope.getTimes = function(haircut_type)
+    $scope.getTimes = function(haircut_type,date)
     {
+        var day = date.getDate();
+        var x = date.toDateString().substr(4,3);
+        var year = date.getFullYear();
+        var formattedDate = day+'-'+x+'-'+year;
+
+        console.log(formattedDate);
+
         var timeslot = 40;
 
         if(haircut_type == "Hot Towel Shave")
@@ -347,8 +371,8 @@ app.controller('appointmentsController', function($rootScope,$scope,$aside, $htt
             timeslot = 60;
         }
 
-        $scope.timeslot = timeslot;
-        $http.get(API_URL + "times/" + timeslot)
+        $scope.new_event.time = timeslot;
+        $http.get(API_URL + "times/" + timeslot + "/" + formattedDate)
             .success(function (response) {
                 console.log(response);
                 $scope.times = response;

@@ -117,7 +117,7 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 
 	Route::get('user', 'AuthController@getLoggedInUser');
 
-	Route::get('times/{timeslot?}','AppointmentsController@getTimes');
+	Route::get('times/{timeslot?}/{date}','AppointmentsController@getTimes');
 
 	Route::get('users/{id}/appointments','AppointmentsController@index');
 
