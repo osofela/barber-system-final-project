@@ -79,7 +79,7 @@ class AppointmentsController extends ApiController {
         $appointment->music_choice = Input::get('music_choice');
         $appointment->music_artist = $music_artist;
         $appointment->drink_choice = Input::get('drink_choice');
-        $appointment->date = Carbon::parse(Input::get('date'));
+        $appointment->appointment_date = Carbon::parse(Input::get('date'));
 
         $times = json_decode(Input::get('time'),true);
 
@@ -152,7 +152,7 @@ class AppointmentsController extends ApiController {
         $appointment->music_choice = Input::get('music_choice');
         $appointment->music_artist = $music_artist;
         $appointment->drink_choice = Input::get('drink_choice');
-        $appointment->date = Carbon::parse(Input::get('date'));
+        $appointment->appointment_date = Carbon::parse(Input::get('date'));
 
 //        $times = json_decode(Input::get('time'),true);
 //
