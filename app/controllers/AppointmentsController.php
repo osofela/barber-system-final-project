@@ -197,16 +197,18 @@ class AppointmentsController extends ApiController {
     }
 
 
-    public function getTimes($timeSlot = 40, $date)
+    public function getTimes($timeSlot = 60, $date)
     {
+
         $startTime = Carbon::create(null, null, null, 9);
         $endTime = Carbon::create(null, null, null, 9);
+        $last = Carbon::create(null, null, null, 17);
 
         $date = Carbon::parse($date);
 
         $times = array();
 
-        while($startTime->toTimeString() != "17:00:00")
+        while($startTime->toTimeString() && $endTime->toTimeString() <= $last->toTimeString())
         {
 
             $endTime->addMinutes($timeSlot);
@@ -216,13 +218,36 @@ class AppointmentsController extends ApiController {
                 'appointment_date' => $date->toDateString()
             ));
 
+
             if(!$time)
             {
-                array_push($times, array("start_time" => $startTime->toTimeString(), "end_time" => $endTime->toTimeString()));
+
+                $between = DB::table('appointments')
+                            ->where('appointment_date', $date->toDateString())
+                            ->where('start_time','>=',$startTime->toTimeString())
+                            ->where('end_time','<=',$endTime->toTimeString())
+                            ->get();
+
+                if(!$between)
+                {
+                    if($startTime->toTimeString() && $endTime->toTimeString() <= $last->toTimeString())
+                    {
+                        array_push($times, array("start_time" => $startTime->toTimeString(), "end_time" => $endTime->toTimeString()));
+                        $startTime->addMinutes($timeSlot);
+                    }
+
+                }
+                else
+                {
+                    $startTime = Carbon::parse($between[0]->end_time);
+                    $endTime = Carbon::parse($between[0]->end_time);
+                }
             }
-
-            $startTime->addMinutes($timeSlot);
-
+            else
+            {
+                $startTime = Carbon::parse($time[0]->end_time);
+                $endTime = Carbon::parse($time[0]->end_time);
+            }
         }
 
         return $times;

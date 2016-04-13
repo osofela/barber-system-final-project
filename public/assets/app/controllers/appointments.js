@@ -153,6 +153,7 @@ app.controller('appointmentsController', function($rootScope,$scope,$http, API_U
     /* add custom event*/
     $scope.addEvent = function() {
 
+        $scope.new_event = {};
         $scope.new_event.date = new Date();
 
         addEventAside.$promise.then(function() {
