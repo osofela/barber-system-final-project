@@ -4,8 +4,6 @@
     <list default="true" id="d7739cbc-6f53-40d4-9164-a5b5b95ed4ac" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AppointmentsController.php" afterPath="$PROJECT_DIR$/app/controllers/AppointmentsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/app/controllers/appointments.js" afterPath="$PROJECT_DIR$/public/assets/app/controllers/appointments.js" />
     </list>
     <ignored path="final_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +38,7 @@
       <file leaf-file-name="AppointmentsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/AppointmentsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-67.708336">
+            <state vertical-scroll-proportion="0.0">
               <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
               <folding>
                 <marker date="1460574266000" expanded="true" signature="5037:5133" placeholder="SELECT * FRO... appointments" />
@@ -102,7 +100,7 @@
       <file leaf-file-name="appointments.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/app/controllers/appointments.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5113636">
+            <state vertical-scroll-proportion="0.52840906">
               <caret line="155" column="28" selection-start-line="155" selection-start-column="28" selection-end-line="155" selection-end-column="28" />
               <folding />
             </state>
@@ -252,8 +250,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -664,6 +660,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -980,14 +978,20 @@
       <option name="project" value="LOCAL" />
       <updated>1460474058728</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Time Algor Tested And Working">
+      <created>1460574590904</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1460574590904</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31744748" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32229403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1022,7 +1026,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed Git Ignore&#10;" />
     <MESSAGE value="New Comment Removed" />
     <MESSAGE value="Database Migrations And User Seeds Added" />
     <MESSAGE value="User Transformers Added" />
@@ -1047,7 +1050,8 @@
     <MESSAGE value="404 Page Added" />
     <MESSAGE value="Calendar Crud Without Times" />
     <MESSAGE value="Available Times with Date" />
-    <option name="LAST_COMMIT_MESSAGE" value="Available Times with Date" />
+    <MESSAGE value="Time Algor Tested And Working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Time Algor Tested And Working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1351,7 +1355,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AppointmentsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-67.708336">
+        <state vertical-scroll-proportion="0.0">
           <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
           <folding>
             <marker date="1460574266000" expanded="true" signature="5037:5133" placeholder="SELECT * FRO... appointments" />
@@ -1399,6 +1403,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/app/controllers/appointments.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52840906">
+          <caret line="155" column="28" selection-start-line="155" selection-start-column="28" selection-end-line="155" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/forms/eventform.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1411,14 +1423,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="106" column="94" selection-start-line="106" selection-start-column="94" selection-end-line="106" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/app/controllers/appointments.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5113636">
-          <caret line="155" column="28" selection-start-line="155" selection-start-column="28" selection-end-line="155" selection-end-column="28" />
           <folding />
         </state>
       </provider>
