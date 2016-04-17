@@ -110,7 +110,7 @@
                     </div>
 
 
-                    <form>
+                </form>
 
             </div>
             <tt>barber = {{selected_event.barber_id}}</tt><br/>

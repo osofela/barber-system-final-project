@@ -109,13 +109,13 @@
                                         {{time.start_time}} {{time.end_time}}</option>
                                 </select>
                                 <span class="help-inline"
-                                      ng-show="addEvent.time.$invalid && addEvent.time.$touched">Time field is required</span>
+                                      ng-show="addEvent.time.$invalid || addEvent.time.$touched">Time field is required</span>
 
                             </div>
                         </div>
                     </div>
 
-                    <form>
+                </form>
 
             </div>
             <tt>barber = {{new_event.barber_id}}</tt><br/>
