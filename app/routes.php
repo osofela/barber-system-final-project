@@ -48,16 +48,15 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 			return View::make('admin/appointments');
 		});
 
-		Route::get('forms/eventform.php',function()
-		{
-			return View::make('admin/forms/eventform');
-		});
-
 		Route::get('forms/neweventform.php',function()
 		{
 			return View::make('admin/forms/neweventform');
 		});
 
+		Route::get('forms/eventform.php',function()
+		{
+			return View::make('admin/forms/eventform');
+		});
 
 		Route::get('users',function()
 		{
@@ -92,6 +91,16 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 		Route::get('dashboard',function()
 		{
 			return View::make('client/dashboard');
+		});
+
+		Route::get('forms/clientform.php',function()
+		{
+			return View::make('client/forms/clientform');
+		});
+
+		Route::get('forms/clienteditform.php',function()
+		{
+			return View::make('client/forms/clienteditform');
 		});
 
 		Route::get('appointments','ClientsController@index');

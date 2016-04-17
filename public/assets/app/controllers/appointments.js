@@ -30,6 +30,7 @@ app.controller('appointmentsController', function($rootScope,$scope,$http, API_U
         $scope.selected_event = date;
         //$scope.selected_event.date = new Date($scope.selected_event.date);
         $scope.selected_event.date = new Date($scope.selected_event.date);
+        $scope.getTimes($scope.selected_event.haircut_type,$scope.selected_event.date);
 
         console.log($scope.selected_event.date);
 
@@ -197,6 +198,7 @@ app.controller('appointmentsController', function($rootScope,$scope,$http, API_U
             }
         });
     };
+
     /* Render Tooltip */
     $scope.eventRender = function( event, element, view ) {
         element.attr({'tooltip': event.title,

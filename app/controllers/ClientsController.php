@@ -17,9 +17,7 @@ class ClientsController extends ApiController {
 	 */
 	public function index()
 	{
-
-		$client_id = Auth::user()->user_id;
-		$client = User::find($client_id);
+		$client = User::find(Auth::user()->user_id);
 
 		$appointments =  $client->appointments;
 
@@ -67,13 +65,13 @@ class ClientsController extends ApiController {
 		$appointment->music_choice = Input::get('music_choice');
 		$appointment->music_artist = $music_artist;
 		$appointment->drink_choice = Input::get('drink_choice');
-		$appointment->date = Carbon::parse(Input::get('date'));
+		$appointment->appointment_date = Carbon::parse(Input::get('date'));
 
-//        $times = json_decode(Input::get('time'),true);
-//
-//        $appointment->start_time = $times['start_time'];
-//
-//        $appointment->end_time = $times['end_time'];
+        $times = json_decode(Input::get('time'),true);
+
+        $appointment->start_time = $times['start_time'];
+
+        $appointment->end_time = $times['end_time'];
 
 		$appointment->save();
 	}
@@ -127,7 +125,7 @@ class ClientsController extends ApiController {
 		$appointment->music_choice = Input::get('music_choice');
 		$appointment->music_artist = $music_artist;
 		$appointment->drink_choice = Input::get('drink_choice');
-		$appointment->date = Carbon::parse(Input::get('date'));
+		$appointment->appointment_date = Carbon::parse(Input::get('date'));
 
 //		$times = json_decode(Input::get('time'),true);
 //

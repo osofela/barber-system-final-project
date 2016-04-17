@@ -160,6 +160,8 @@ class UsersController extends ApiController
     {
         $user = User::findOrFail($id);
 
+        $user->appointments;
+
         $user->delete();
     }
 
