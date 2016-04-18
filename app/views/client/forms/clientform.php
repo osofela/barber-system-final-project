@@ -104,28 +104,27 @@
                     <div uib-collapse="showTimes">
                         <div class="form-group">
                             <div class="col-sm-7">
-                                <select name="time" id="time" ng-model="new_event.time" class="form-control" ng-required="true">
+                                <select name="time" id="time" ng-required="true" ng-model="new_event.time" class="form-control">
                                     <option ng-repeat="time in times" value="{{time}}">
                                         {{time.start_time}} {{time.end_time}}</option>
                                 </select>
                                 <span class="help-inline"
-                                      ng-show="addEvent.time.$invalid || addEvent.time.$touched">Time field is required</span>
+                                      ng-show="addEvent.time.$invalid && addEvent.time.$touched">Time field is required</span>
 
                             </div>
                         </div>
                     </div>
-
                 </form>
-
             </div>
             <tt>barber = {{new_event.barber_id}}</tt><br/>
             <tt>client = {{new_event.user_id}}</tt><br/>
             <tt>date = {{new_event.date}}</tt><br/>
+            <tt>times = {{new_event.time}}</tt><br/>
 
 
             <div class="aside-footer">
                 <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="createEvent()" ng-disabled="addEvent.$invalid">Save</button>
+                <button type="button" class="btn btn-primary" ng-click="createEvent()" ng-disabled="addEvent.$invalid || !addEvent.time">Save</button>
             </div>
         </div>
     </div>

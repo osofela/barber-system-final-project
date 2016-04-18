@@ -374,7 +374,6 @@ app.controller('appointmentsController', function($rootScope,$scope,$http, API_U
             timeslot = 60;
         }
 
-        $scope.new_event.time = timeslot;
         $http.get(API_URL + "times/" + timeslot + "/" + formattedDate)
             .success(function (response) {
                 console.log(response);

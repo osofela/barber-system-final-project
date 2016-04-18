@@ -5,7 +5,7 @@
                 <button type="button" class="close" ng-click="$hide()">&times;</button>
                 <h4 class="aside-title" ng-bind-html="title"></h4>
             </div>
-            <div class="aside-body" >
+            <div class="aside-body">
 
 
                 <form name="frmAppointments" class="form-horizontal" novalidate="">
@@ -115,8 +115,8 @@
             </div>
             <tt>barber = {{selected_event.barber_id}}</tt><br/>
             <tt>client = {{selected_event.user_id}}</tt><br/>
-            <tt>times = {{appointment.time}}</tt><br/>
-            <tt>date = {{selected_event.date}}</tt><br/>
+            <tt>times = {{selected_event.time}}</tt><br/>
+
 
             <div class="aside-footer">
                 <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
