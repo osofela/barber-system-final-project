@@ -105,6 +105,22 @@
                         </div>
                     </div>
 
+                    <button type="button" class="btn btn-primary" ng-disabled="addEvent.date.$invalid || addEvent.haircut_type.$invalid" ng-click="showTimes = !showTimes">Get Available Times</button>
+                    <hr>
+                    <div uib-collapse="showTimes">
+                        <div class="form-group">
+                            <div class="col-sm-7">
+                                <select name="time" id="time" ng-model="selected_event.time" class="form-control" ng-required="true">
+                                    <option ng-repeat="time in times" value="{{time}}">
+                                        {{time.start_time}} {{time.end_time}}</option>
+                                </select>
+                                <span class="help-inline"
+                                      ng-show="frmAppointments.time.$invalid && frmAppointments.time.$touched">Time field is required</span>
+
+                            </div>
+                        </div>
+                    </div>
+
                     <form>
 
             </div>

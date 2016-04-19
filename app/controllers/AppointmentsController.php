@@ -101,7 +101,7 @@ class AppointmentsController extends ApiController {
 
     public function show($id)
     {
-        return Appointment::find($id);
+        return Appointment::findOrFail($id);
 
 //        if (! $appointment)
 //        {
