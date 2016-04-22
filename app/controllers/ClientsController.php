@@ -23,8 +23,8 @@ class ClientsController extends ApiController {
 
 		foreach($appointments as $appointment)
 		{
-			$appointment->barber = $appointment->barber;
-			$appointment->client = $appointment->client;
+			$appointment->barber;
+			$appointment->client;
 		}
 
 		return $appointments;

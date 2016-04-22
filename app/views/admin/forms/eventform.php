@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-3 control-label">Haircut Type</label>
+                        <label for="inputEmail3" class="col-sm-3 control-label">Haircut Selection</label>
                         <div class="col-sm-7">
                             <select ng-model="selected_event.haircut_type" class="form-control" id="haircut_type" name="haircut_type" ng-change="getTimes(selected_event.haircut_type)" placeholder="Haircut Type" value="{{haircut_type}}"
                                     ng-required="true">
@@ -47,12 +47,12 @@
                                 <option value="Style Cut & Hot Towel Shave">Style Cut & Hot Towel Shave</option>
                             </select>
                                     <span class="help-inline"
-                                          ng-show="frmAppointments.haircut_type.$invalid && frmAppointments.haircut_type.$touched">Haircut Type field is required</span>
+                                          ng-show="frmAppointments.haircut_type.$invalid && frmAppointments.haircut_type.$touched">Haircut field is required</span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-3 control-label">Music Choice</label>
+                        <label for="inputEmail3" class="col-sm-3 control-label">Music Genre Selection</label>
                         <div class="col-sm-5">
                             <select ng-model="selected_event.music_choice" class="form-control" id="music_choice" name="music_choice" placeholder="Music Choice"
                                     value="{{music_choice}}" ng-required="true">
@@ -65,33 +65,33 @@
                             </select>
 
                             <span class="help-inline"
-                                  ng-show="frmAppointments.music_choice.$invalid && frmAppointments.music_choice.$touched">Music Choice field is required</span>
+                                  ng-show="frmAppointments.music_choice.$invalid && frmAppointments.music_choice.$touched">Music Genre field is required</span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-3 control-label">Music Artist</label>
+                        <label for="inputEmail3" class="col-sm-3 control-label">Music Artist Selection</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="music_artist" name="music_artist" placeholder="Music Artist" value="{{music_artist}}"
+                            <input type="text" class="form-control" id="music_artist" name="music_artist" placeholder="Artist Selection" value="{{music_artist}}"
                                    ng-model="selected_event.music_artist">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-3 control-label">Drink Choice</label>
+                        <label for="inputEmail3" class="col-sm-3 control-label">Beverage Selection</label>
                         <div class="col-sm-5">
                             <select ng-model="selected_event.drink_choice" class="form-control" id="drink_choice" name="drink_choice" placeholder="Drink Choice"
                                     value="{{drink_choice}}" ng-required="true">
                                 <option value="None">None</option>
-                                <option value="Water">Water</option>
-                                <option value="Coke Cola">Coke Cola</option>
-                                <option value="Sprite">Sprite</option>
                                 <option value="Tea">Tea</option>
                                 <option value="Ice Tea">Ice Tea</option>
-                                <option value="Coffee">Coffee</option>
+                                <option value="Latte">Latte</option>
+                                <option value="Cappuccino">Cappuccino</option>
+                                <option value="Freshly Squeezed Juice">Freshly Squeezed Juice</option>
+                                <option value="Soft Drink">Soft Drink</option>
                             </select>
                             <span class="help-inline"
-                                  ng-show="frmAppointments.drink_choice.$invalid && frmAppointments.drink_choice.$touched">Drink Choice field is required</span>
+                                  ng-show="frmAppointments.drink_choice.$invalid && frmAppointments.drink_choice.$touched">Beverage field is required</span>
                         </div>
                     </div>
 

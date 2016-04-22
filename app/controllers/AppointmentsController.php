@@ -32,8 +32,8 @@ class AppointmentsController extends ApiController {
 
         foreach($appointments as $appointment)
         {
-            $appointment->barber = $appointment->barber;
-            $appointment->client = $appointment->client;
+            $appointment->barber;
+            $appointment->client;
         }
 
         return $appointments;
@@ -224,8 +224,8 @@ class AppointmentsController extends ApiController {
 
                 $between = DB::table('appointments')
                             ->where('appointment_date', $date->toDateString())
-                            ->where('start_time','>=',$startTime->toTimeString())
-                            ->where('end_time','<=',$endTime->toTimeString())
+                            ->where('start_time','>=', $startTime->toTimeString())
+                            ->where('end_time','<=', $endTime->toTimeString())
                             ->get();
 
                 if(!$between)
@@ -235,7 +235,6 @@ class AppointmentsController extends ApiController {
                         array_push($times, array("start_time" => $startTime->toTimeString(), "end_time" => $endTime->toTimeString()));
                         $startTime->addMinutes($timeSlot);
                     }
-
                 }
                 else
                 {

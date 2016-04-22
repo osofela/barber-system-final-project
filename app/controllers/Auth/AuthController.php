@@ -113,8 +113,8 @@ class AuthController extends BaseController
             'first_name'    => 'required',
             'last_name'    => 'required',
             'email'    => 'required|email|unique:users', // make sure the email is an actual email
-            'password' => 'required|alphaNum|min:3|confirmed', // password can only be alphanumeric and has to be greater than 3 characters
-            'password_confirmation' => 'required|alphaNum|min:3'
+            'password' => 'required|alphaNum|min:4|confirmed', // password can only be alphanumeric and has to be greater than 3 characters
+            'password_confirmation' => 'required|alphaNum|min:4'
         );
 
         // run the validation rules on the inputs from the form

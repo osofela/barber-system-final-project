@@ -16,19 +16,22 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-
 // route to show the login form
 Route::get('auth/login', array('before' => 'guest','uses' => 'AuthController@showLogin'));
 
-// route to process the form
+// route to process the login form
 Route::post('auth/login', array('before' => 'csrf','uses' => 'AuthController@doLogin'));
 
+// route to logout
 Route::get('auth/logout', array('uses' => 'AuthController@doLogout'));
 
+// route to show the register form
 Route::get('auth/register', array('before' => 'guest','uses' => 'AuthController@showRegister'));
 
+// route to process the register form
 Route::post('auth/register', array('before' => 'csrf','uses' => 'AuthController@doRegister'));
 
+// route to show confirmation of register
 Route::get('auth/thanks', array('before' => 'guest','uses' => 'AuthController@showThanks'));
 
 
