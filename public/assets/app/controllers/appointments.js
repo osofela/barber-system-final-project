@@ -210,7 +210,7 @@ app.controller('appointmentsController', function($rootScope,$scope,$http, API_U
     $scope.uiConfig = {
         calendar:{
             height: 450,
-            editable: true,
+            editable: false,
             header:{
                 left: 'prev',
                 center: 'title,today',

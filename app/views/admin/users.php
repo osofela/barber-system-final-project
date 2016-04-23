@@ -1,80 +1,92 @@
-<!DOCTYPE html>
-<html lang="en-US" ng-app="userRecords" ng-controller="usersController">
+<?php include_once 'layouts/users_master.php';?>
 
-<head>
-    <title>Admin Page</title>
-    <h1>Admin Page</h1>
-    <h3>Hello {{loggedInUser.first_name}} {{loggedInUser.last_name}}</h3>
-    <a href="/auth/logout">Logout</a>
-    <a href="appointments">Appointments</a>
-    <a href="dashboard">Dashboard</a>
 
-    <!-- Load Bootstrap CSS -->
-    <link href="<?= asset('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?= asset('assets/css/bootstrap.css') ?>" rel="stylesheet">
-</head>
-<body>
 
-<h2>Users</h2>
 
-    <div class="col-md-3">
-        <input ng-model="searchText" class="form-control" type="search" placeholder="Search">
-        <span class="glyphicon glyphicon-search"></span>
+<div class="container">
+    <div class="page-container">
+        <div class="page-sidebar-wrapper">
+            <?php include_once 'layouts/users_sidebar.php';?>
+        </div>
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div class="page-head">
+                    <h1>Barbers</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-11">
+                        <!-- BEGIN PORTLET-->
+                        <div class="portlet light">
+                            <div class="portlet-title">
+                                <div class="caption caption-md">
+                                    <i class="icon-bar-chart theme-font-color hide"></i>
+                                    <span class="caption-subject theme-font-color bold uppercase">Barbers</span>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <input ng-model="searchText" class="form-control" type="search" placeholder="Search">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </div>
+                            </div>
+
+                            <div class="portlet-body">
+
+                                <!-- Table-to-load-the-data Part -->
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>User Id</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Telephone</th>
+                                        <th>Role</th>
+                                        <th>
+                                            <button id="btn-add" class="btn btn-primary btn-sm col-lg-6" ng-click="toggle('add', 0)" data-toggle="tooltip" title="Add">
+                                                Add
+                                            </button>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="user in users | filter:searchText">
+                                        <td>{{ user.user_id }}</td>
+                                        <td>{{ user.first_name }}</td>
+                                        <td>{{ user.last_name }}</td>
+                                        <td>{{ user.address }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>{{ user.telephone }}</td>
+                                        <td>{{ user.role }}</td>
+                                        <td>
+                                            <button class="btn btn-default btn-sm btn-detail" ng-click="toggle('edit', user.user_id)" data-toggle="tooltip" title="Edit">
+                                                Edit
+                                            </button>
+
+                                            <button class="btn btn-danger btn-sm btn-delete" ng-click="confirmDelete(user.user_id)" data-toggle="tooltip" title="Delete">
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <!-- End of Table-to-load-the-data Part -->
+                                <!-- Modal (Pop up when detail button clicked) -->
+                                <?php include 'forms/useraddform.php';?>
+                                <?php include 'forms/usereditform.php';?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+</div>
 
-    <!-- Table-to-load-the-data Part -->
-    <table class="table">
-        <thead>
-        <tr>
-            <th>User ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Telephone</th>
-            <th>Role</th>
-            <th>
-                <button id="btn-add" class="btn btn-primary btn-sm col-lg-7" ng-click="toggle('add', 0)" data-toggle="tooltip" title="Add">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="user in users | filter:searchText">
-        <td>{{ user.user_id }}</td>
-        <td>{{ user.first_name }}</td>
-        <td>{{ user.last_name }}</td>
-        <td>{{ user.address }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.telephone }}</td>
-        <td>{{ user.role }}</td>
-        <td>
-            <button class="btn btn-default btn-sm btn-detail" ng-click="toggle('edit', user.user_id)" data-toggle="tooltip" title="Edit">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-            </button>
+<?php include_once 'layouts/footer.php';?>
+</div>
 
-            <button class="btn btn-danger btn-sm btn-delete" ng-click="confirmDelete(user.user_id)" data-toggle="tooltip" title="Delete">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </button>
-        </td>
-        </tr>
-        </tbody>
-    </table>
-    <!-- End of Table-to-load-the-data Part -->
-    <!-- Modal (Pop up when detail button clicked) -->
-    <?php include 'forms/useraddform.php';?>
-    <?php include 'forms/usereditform.php';?>
-
-
-
-<!-- Load Javascript Libraries (AngularJS, JQuery, Bootstrap) -->
-<script src="<?= asset('assets/app/lib/angular/angular.min.js') ?>"></script>
-<script src="<?= asset('assets/js/jquery.min.js') ?>"></script>
-<script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
-
-<!-- AngularJS Application Scripts -->
-<script src="<?= asset('assets/app/app.js') ?>"></script>
-<script src="<?= asset('assets/app/controllers/users.js') ?>"></script>
 </body>
 </html>
