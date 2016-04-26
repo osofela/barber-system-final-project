@@ -6,23 +6,12 @@ app.controller('clientController', function($rootScope,$scope,$http, API_URL,$co
     // Pre-fetch an external template populated with a custom scope
     var editEventAside = $aside({scope: $scope, templateUrl: 'forms/clienteditform.php', 'container':"body" , title: "Edit Event" , show: false});
 
-
-
-
-
-
-
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
 
-    $scope.hide = function()
-    {
-        editEventAside.show=false;
-        addEventAside.show=false;
-        document.getElementsByClassName('page-header navbar navbar-fixed-top')[0].style.visibility='visible';
-    };
+
     /* event source that pulls from google.com */
     $scope.eventSource = {
     };
@@ -47,7 +36,7 @@ app.controller('clientController', function($rootScope,$scope,$http, API_URL,$co
         editEventAside.$promise.then(function() {
             editEventAside.show();
         });
-        document.getElementsByClassName('page-header navbar navbar-fixed-top')[0].style.visibility='hidden';
+
     };
     /* alert on Drop */
     $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
@@ -106,7 +95,7 @@ app.controller('clientController', function($rootScope,$scope,$http, API_URL,$co
             type: 'info',duration: 3,
             container: 'body',animation: 'am-fade-and-slide-top', show: true});
 
-        document.getElementsByClassName('page-header navbar navbar-fixed-top')[0].style.visibility='visible';
+
 
 
 
@@ -150,7 +139,7 @@ app.controller('clientController', function($rootScope,$scope,$http, API_URL,$co
             type: 'info',duration: 3,
             container: 'body',animation: 'am-fade-and-slide-top', show: true});
 
-        document.getElementsByClassName('page-header navbar navbar-fixed-top')[0].style.visibility='visible';
+
 
 
     };
@@ -175,7 +164,7 @@ app.controller('clientController', function($rootScope,$scope,$http, API_URL,$co
         addEventAside.$promise.then(function() {
             addEventAside.show();
         });
-        document.getElementsByClassName('page-header navbar navbar-fixed-top')[0].style.visibility='hidden';
+
     };
 
     $scope.getAppointments = function()
