@@ -2,7 +2,7 @@
 <html lang="en-US" ng-app="adminAppointments" ng-controller="adminController">
 <head>
 
-    <title>Admin Appointments</title>
+    <title>Admin Dashboard</title>
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/bootstrap-additions.css') ?>" rel="stylesheet">

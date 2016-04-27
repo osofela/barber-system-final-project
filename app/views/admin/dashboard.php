@@ -1,5 +1,6 @@
 <?php include_once 'layouts/dashboard_master.php';?>
 
+
 <!--<div class="col-md-3">-->
 <!--    <input ng-model="searchText" class="form-control" type="search" placeholder="Search">-->
 <!--    <span class="glyphicon glyphicon-search"></span>-->

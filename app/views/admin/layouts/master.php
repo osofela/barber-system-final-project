@@ -2,11 +2,12 @@
 <html lang="en-US" ng-app="appointmentRecords" ng-controller="appointmentsController">
 <head>
 
-    <title>Admin Dashboard</title>
+    <title>Admin Appointments</title>
     <!-- Load Bootstrap CSS -->
     <link href="<?= asset('assets/css/bootstrap.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/bootstrap-additions.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/angular-motion.css') ?>" rel="stylesheet">
+
     <link href="<?= asset('assets/css/calendarDemo.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/fullcalendar-min.css') ?>" rel="stylesheet">
     <link href="<?= asset('assets/css/fullcalendar-print.css') ?>" media="print" rel="stylesheet">
@@ -16,20 +17,19 @@
     <link href="../../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="../../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="../../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-    <link href="../../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
     <link href="../../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
     <link href="../../../assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
     <link href="../../../assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css">
     <!-- END PAGE LEVEL PLUGIN STYLES -->
-    <!-- BEGIN PAGE STYLES -->
-    <link href="../../../assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
-    <!-- END PAGE STYLES -->
+
     <!-- BEGIN THEME STYLES -->
     <!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
     <link href="../../../assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
-    <link href="../../../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+
     <link href="../../../assets/admin/layout4/css/layout.css" rel="stylesheet" type="text/css"/>
     <link href="../../../assets/admin/layout4/css/themes/light.css" rel="stylesheet" type="text/css" id="style_color"/>
 
