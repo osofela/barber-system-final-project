@@ -40,7 +40,7 @@
     <!-- BEGIN HEADER INNER -->
     <div class="page-logo">
         <a href="/api/v1/admin/dashboard">
-            <img src="../../../assets/admin/layout4/img/Suzi-K-Logo.png" align="middle" alt="logo" height="70" width="70" class="logo-default"/>
+            <img src="../../../assets/admin/layout4/img/BarberQ-Logo.png" align="middle" alt="logo" height="53" width="160" class="logo-default"/>
         </a>
         <div class="menu-toggler sidebar-toggler">
             <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->

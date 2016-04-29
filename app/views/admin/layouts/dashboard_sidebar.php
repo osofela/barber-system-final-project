@@ -11,9 +11,15 @@
         <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
         <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="javascript:;">
+                <a href="/api/v1/admin/charts">
+                    <i class="icon-home"></i>
+                    <span class="title">Admin Charts</span>
+                </a>
+            </li>
             <li class="active">
                 <a href="/api/v1/admin/dashboard">
-                    <i class="icon-home"></i>
+                    <i class="fa fa-tachometer"></i>
                     <span class="title">Dashboard</span>
                 </a>
             </li>

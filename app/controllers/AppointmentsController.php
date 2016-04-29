@@ -197,7 +197,7 @@ class AppointmentsController extends ApiController {
     }
 
 
-    public function getTimes($timeSlot = 60, $date)
+    public function getTimes($timeSlot, $date)
     {
 
         $startTime = Carbon::create(null, null, null, 9);

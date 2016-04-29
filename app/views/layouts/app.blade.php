@@ -47,7 +47,7 @@
 <br>
 
 <div class="logo">
-    {{ HTML::image('Suzi-K-Logo.png', 'Barber Logo', array( 'width' => 150, 'height' => 150 )) }}
+    {{ HTML::image('BarberQ-Logo.png', 'Barber Logo', array( 'width' => 400, 'height' => 120 )) }}
 </div>
 
 <div class="content">
