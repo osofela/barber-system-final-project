@@ -25,7 +25,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <input ng-model="searchText" class="form-control" type="search" placeholder="Search">
+                                    <input ng-model="searchText" class="form-control" type="search" placeholder="Filter">
                                     <span class="glyphicon glyphicon-search"></span>
                                 </div>
                             </div>
