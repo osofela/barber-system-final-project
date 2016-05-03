@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-11">
                         <!-- BEGIN PORTLET-->
                         <div class="portlet light">
                             <div class="portlet-title">

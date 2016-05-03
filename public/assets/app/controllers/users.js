@@ -1,9 +1,15 @@
-app.controller('usersController', function($scope, $http, API_URL) {
-    //retrieve employees listing from API
-    $http.get(API_URL + "users")
-        .success(function(response) {
-            $scope.users = response;
-        });
+app.controller('usersController', function($scope, $http, API_URL,$alert) {
+
+    $scope.getBarbers = function()
+    {
+        //retrieve barbers listing from API
+        $http.get(API_URL + "users")
+            .success(function(response) {
+                $scope.users = response;
+            });
+    };
+
+    $scope.getBarbers();
 
     //get logged in user
     $http.get(API_URL + "user")
@@ -56,12 +62,25 @@ app.controller('usersController', function($scope, $http, API_URL) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(response) {
             console.log(response);
-            location.reload();
+            //location.reload();
+
         }).error(function(response) {
             console.log(response);
             alert('This is embarassing. An error has occured. Please check the log for details');
+
         });
-    }
+
+        $('#myAddModal').modal('hide');
+        $('#myEditModal').modal('hide');
+
+        var createAlert = $alert({title: 'Barber Saved! ', content: 'Your barber has been saved.', placement: 'top',
+            type: 'info',duration: 3,
+            container: 'body',animation: 'am-fade-and-slide-top', show: true});
+
+        $scope.getBarbers();
+
+
+    };
 
     //delete record
     $scope.confirmDelete = function(id) {
@@ -73,7 +92,12 @@ app.controller('usersController', function($scope, $http, API_URL) {
             }).
             success(function(data) {
                 console.log(data);
-                location.reload();
+                var deleteAlert = $alert({title: 'Barber Deleted! ', content: 'Your barber has been deleted.', placement: 'top',
+                    type: 'danger',duration: 3,
+                    container: 'body',animation: 'am-fade-and-slide-top', show: true});
+
+                $scope.getBarbers();
+                //location.reload();
             }).
             error(function(data) {
                 console.log(data);

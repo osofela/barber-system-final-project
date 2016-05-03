@@ -1,4 +1,4 @@
-var app = angular.module('userRecords', [])
+var app = angular.module('userRecords', ['ui.bootstrap','mgcrea.ngStrap'])
             .constant('API_URL', 'http://localhost:8000/api/v1/');
 
 app.directive("passwordVerify", function() {

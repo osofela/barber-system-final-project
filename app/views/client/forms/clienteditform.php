@@ -112,10 +112,10 @@
                     <form>
 
             </div>
-            <tt>barber = {{selected_event.barber_id}}</tt><br/>
-            <tt>client = {{selected_event.user_id}}</tt><br/>
-            <tt>times = {{appointment.time}}</tt><br/>
-            <tt>date = {{selected_event.date}}</tt><br/>
+<!--            <tt>barber = {{selected_event.barber_id}}</tt><br/>-->
+<!--            <tt>client = {{selected_event.user_id}}</tt><br/>-->
+<!--            <tt>times = {{appointment.time}}</tt><br/>-->
+<!--            <tt>date = {{selected_event.date}}</tt><br/>-->
 
             <div class="aside-footer">
                 <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>

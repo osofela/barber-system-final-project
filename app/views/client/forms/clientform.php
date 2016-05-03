@@ -117,9 +117,9 @@
                     <form>
 
             </div>
-            <tt>barber = {{new_event.barber_id}}</tt><br/>
-            <tt>client = {{new_event.user_id}}</tt><br/>
-            <tt>date = {{new_event.date}}</tt><br/>
+<!--            <tt>barber = {{new_event.barber_id}}</tt><br/>-->
+<!--            <tt>client = {{new_event.user_id}}</tt><br/>-->
+<!--            <tt>date = {{new_event.date}}</tt><br/>-->
 
 
             <div class="aside-footer">

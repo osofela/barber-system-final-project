@@ -308,7 +308,7 @@ app.controller('appointmentsController', function($rootScope,$scope,$http, API_U
 
     $scope.removeEvent = function(appointment_id)
     {
-        var isConfirmDelete = confirm('Are you sure you want this event?');
+        var isConfirmDelete = confirm('Are you sure you want this appointment?');
         if (isConfirmDelete) {
             $http({
                 method: 'DELETE',

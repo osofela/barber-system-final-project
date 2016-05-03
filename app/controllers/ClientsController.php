@@ -119,7 +119,9 @@ class ClientsController extends ApiController {
 
 		$appointment = Appointment::findOrfail($id);
 
+		//Client that is logged in.
 		$appointment->user_id = Auth::user()->user_id;
+
 		$appointment->barber_id = Input::get('barber_id');
 		$appointment->haircut_type = Input::get('haircut_type');
 		$appointment->music_choice = Input::get('music_choice');
