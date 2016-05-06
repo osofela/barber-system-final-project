@@ -149,7 +149,15 @@ class AuthController extends BaseController
             $user->password = Hash::make(Input::get('password'));
             $user->save();
 
+
             //return 'User record successfully created with id ' . $user->id;
+            $mp = Mixpanel::getInstance("687a1651f84c817428a1d5b57480f371");
+
+            // identify the current request as user.
+            $mp->identify($user->user_id);
+
+            // track an event associated to user.
+            $mp->track("Registered", array("Client" => $user->first_name . " " . $user->last_name));
 
             return Redirect::to('auth/thanks');
         }
