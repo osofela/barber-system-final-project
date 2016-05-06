@@ -58,9 +58,18 @@ class AuthController extends BaseController
 
                 $userRole = Auth::user()->role;
 
+                $mp = Mixpanel::getInstance("687a1651f84c817428a1d5b57480f371");
+
+                // identify the current request as user.
+                $mp->identify(Auth::user()->user_id);
+
+                // track an event associated to user.
+                $mp->track("Logged In", array("User" => Auth::user()->first_name . " " .Auth::user()->last_name,
+                                              "Role" => Auth::user()->role));
+
                 if($userRole == "Admin")
                 {
-                    return Redirect::to('api/v1/admin/appointments');
+                    return Redirect::to('api/v1/admin/dashboard');
                 }
                 else if($userRole == "Barber")
                 {

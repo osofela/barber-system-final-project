@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"fzaninotto/faker": "1.3.*@dev"
+		"fzaninotto/faker": "1.3.*@dev",
+		"mixpanel/mixpanel-php" : "2.*"
 	},
 	"autoload": {
 		"classmap": [
