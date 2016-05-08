@@ -42,7 +42,7 @@
 
     <div class="page-logo">
         <a href="/api/v1/admin/dashboard">
-            <img src="../../../assets/admin/layout4/img/app-nav-logo.svg" align="middle" alt="logo" class="logo-default"/>
+            <img src="../../../assets/admin/layout4/img/app-nav-logo.svg" align="middle" alt="logo" height="60" width="160" class="logo-default"/>
         </a>
         <div class="menu-toggler sidebar-toggler">
             <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
