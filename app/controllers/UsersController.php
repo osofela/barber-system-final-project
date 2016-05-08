@@ -88,6 +88,17 @@ class UsersController extends ApiController
         $user->password = Hash::make(Input::get('password'));
         $user->save();
 
+        $mp = Mixpanel::getInstance("687a1651f84c817428a1d5b57480f371");
+
+        // identify the current request as user.
+        $mp->identify($user->user_id);
+
+        // track an event associated to user.
+        $mp->track("Barber Added", array("Barber" => $user->first_name . " " . $user->last_name,
+                                    "Barber Role" => $user->role,
+                                    "Created By ID" => Auth::user()->user_id,
+                                    "Created By" => Auth::user()->first_name . " " . Auth::user()->last_name));
+
 
 
 
@@ -163,6 +174,16 @@ class UsersController extends ApiController
         $user->appointments;
 
         $user->delete();
+
+        $mp = Mixpanel::getInstance("687a1651f84c817428a1d5b57480f371");
+
+        // identify the current request as user.
+        $mp->identify($user->user_id);
+
+        // track an event associated to user.
+        $mp->track("Barber Deleted", array("Barber" => $user->first_name . " " . $user->last_name,
+            "Deleted By ID" => Auth::user()->user_id,
+            "Deleted By" => Auth::user()->first_name . " " . Auth::user()->last_name));
     }
 
     public function getClients()

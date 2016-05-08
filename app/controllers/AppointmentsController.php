@@ -89,6 +89,17 @@ class AppointmentsController extends ApiController {
 
         $appointment->save();
 
+        $mp = Mixpanel::getInstance("687a1651f84c817428a1d5b57480f371");
+
+        // identify the current request as appointment.
+        $mp->identify($appointment->appointment_id);
+
+        // track an event associated to user.
+        $mp->track("Appointment Added", array("Barber" => $appointment->barber->first_name . " " . $appointment->barber->last_name,
+            "Client" => $appointment->client->first_name . " " . $appointment->client->last_name,
+            "Created By ID" => Auth::user()->user_id,
+            "Created By" => Auth::user()->first_name . " " . Auth::user()->last_name));
+
     }
 
 

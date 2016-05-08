@@ -150,7 +150,6 @@ class AuthController extends BaseController
             $user->save();
 
 
-            //return 'User record successfully created with id ' . $user->id;
             $mp = Mixpanel::getInstance("687a1651f84c817428a1d5b57480f371");
 
             // identify the current request as user.
