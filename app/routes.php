@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('index');
+	return View::make('auth/login.blade.php');
 });
 
 // route to show the login form
