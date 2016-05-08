@@ -93,6 +93,14 @@ class UsersController extends ApiController
         // identify the current request as user.
         $mp->identify($user->user_id);
 
+        $mp->people->set($user->user_id, array(
+            '$first_name'       =>  $user->first_name,
+            '$last_name'        =>  $user->last_name,
+            '$email'            =>  $user->email,
+            '$telephone'        => $user->telephone,
+            '$role'             => $user->role
+        ));
+
         // track an event associated to user.
         $mp->track("Barber Added", array("Barber" => $user->first_name . " " . $user->last_name,
                                     "Barber Role" => $user->role,
