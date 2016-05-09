@@ -26,8 +26,8 @@ return array(
 	|
 	*/
 
-	'url' => 'http://barberq.garyobrien.eu',
-    'api_url' => 'http://barberq.garyobrien.eu/api/v1/',
+	'url' => 'http://barberq.app',
+    'api_url' => 'http://barberq.app/api/v1/',
 
 	/*
 	|--------------------------------------------------------------------------

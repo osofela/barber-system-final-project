@@ -1,4 +1,8 @@
+<?php
 
+$api_url = Config::get('app.api_url');
+
+?>
 <!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.2
@@ -248,6 +252,15 @@ License: You must have a valid license purchased only from themeforest(the above
         Tasks.initDashboardWidget(); // init tash dashboard widget
     });
 </script>
+
+<script type="text/javascript">
+
+    app.constant('API_URL', '<?php echo $api_url;?>');
+
+</script>
+
+
+
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

@@ -1,5 +1,5 @@
-var app = angular.module('userRecords', ['ui.bootstrap','mgcrea.ngStrap'])
-            .constant('API_URL', 'http://barberq.glenngoggin.com/api/v1/');
+var app = angular.module('userRecords', ['ui.bootstrap','mgcrea.ngStrap']);
+
 
 app.directive("passwordVerify", function() {
     return {

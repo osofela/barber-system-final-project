@@ -1,3 +1,8 @@
+<?php
+
+$api_url = Config::get('app.api_url');
+
+?>
 <!DOCTYPE html>
 <html lang="en-US" ng-app="clientAppointments" ng-controller="clientController">
 <head>
@@ -97,6 +102,12 @@ Layout.init(); // init layout
 <script src="<?= asset('assets/app/clientApp.js') ?>"></script>
 <script src="<?= asset('assets/app/controllers/clientAppointments.js') ?>"></script>
 
+
+<script type="text/javascript">
+
+    app.constant('API_URL', '<?php echo $api_url;?>');
+
+</script>
 
 <!--<title>Client Page</title>-->
 <!--<h1>Client Page</h1>-->

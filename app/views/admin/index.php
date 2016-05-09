@@ -1,3 +1,8 @@
+<?php
+
+$api_url = Config::get('app.api_url');
+
+?>
 <!DOCTYPE html>
 <html lang="en-US" ng-app="userRecords">
 <head>
@@ -66,5 +71,11 @@
 <!-- AngularJS Application Scripts -->
 <script src="<?= asset('assets/app/app.js') ?>"></script>
 <script src="<?= asset('assets/app/controllers/users.js') ?>"></script>
+
+<script type="text/javascript">
+
+    app.constant('API_URL', '<?php echo $api_url;?>');
+
+</script>
 </body>
 </html>

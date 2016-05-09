@@ -1,3 +1,8 @@
+<?php
+
+$api_url = Config::get('app.api_url');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
