@@ -20,7 +20,7 @@
             </li>
 
 
-            <li class="active">
+            <li >
                 <a href="/api/v1/admin/appointments">
                     <i class="icon-calendar"></i>
                     <span class="title">All Appointments</span>
@@ -28,7 +28,7 @@
                 </a>
             </li>
 
-            <li >
+            <li class="active">
                 <a href="/api/v1/admin/myappointments">
                     <i class="icon-calendar"></i>
                     <span class="title">My Appointments</span>
@@ -45,5 +45,6 @@
             </li>
 
         </ul>
+
     </div>
 </div>

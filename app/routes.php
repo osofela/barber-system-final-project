@@ -71,6 +71,11 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 			return View::make('admin/dashboard');
 		});
 
+        Route::get('myappointments',function()
+        {
+            return View::make('admin/myappointments');
+        });
+
 		Route::get('charts',function()
 		{
 			return View::make('admin/chart');

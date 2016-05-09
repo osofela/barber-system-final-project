@@ -3,7 +3,7 @@
 
 
 
-<div class="container">
+
     <div class="page-container">
         <div class="page-sidebar-wrapper">
             <?php include_once 'layouts/users_sidebar.php';?>
@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-</div>
+
 </div>
 
 <?php include_once 'layouts/footer.php';?>

@@ -4,7 +4,7 @@ $api_url = Config::get('app.api_url');
 
 ?>
 <!DOCTYPE html>
-<html lang="en-US" ng-app="dashboardApp" ng-controller="dashboardController">
+<html lang="en-US" ng-app="adminAppointments" ng-controller="adminController">
 <head>
 
     <title>Admin Dashboard</title>
@@ -38,8 +38,6 @@ $api_url = Config::get('app.api_url');
     <link href="../../../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="../../../assets/admin/layout4/css/layout.css" rel="stylesheet" type="text/css"/>
     <link href="../../../assets/admin/layout4/css/themes/light.css" rel="stylesheet" type="text/css" id="style_color"/>
-
-    <link href="../../../assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -89,17 +87,8 @@ $api_url = Config::get('app.api_url');
 <script src="<?= asset('assets/js/fullcalendar.js') ?>"></script>
 <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.8/angular-strap.min.js"></script>
 <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.8/angular-strap.tpl.min.js"></script>
-<script src="<?= asset('assets/global/plugins/flot/jquery.flot.min.js') ?>" type="text/javascript"></script>
-<script src="<?= asset('assets/global/plugins/flot/jquery.flot.resize.min.js') ?>" type="text/javascript"></script>
-<script src="<?= asset('assets/global/plugins/flot/jquery.flot.categories.min.js') ?>" type="text/javascript"></script>
-
-<script src="<?= asset('assets/global/plugins/morris/morris.min.js') ?>" type="text/javascript"></script>
-<script src="<?= asset('assets/global/plugins/morris/raphael-min.js') ?>" type="text/javascript"></script>
-
 <script src="<?= asset('assets/global/scripts/metronic.js') ?>"></script>
 <script src="<?= asset('assets/admin/layout4/scripts/layout.js') ?>"></script>
-
-
 
 
 <script>
@@ -107,13 +96,11 @@ $api_url = Config::get('app.api_url');
         Metronic.init(); // init metronic core componets
         Layout.init(); // init layout
     });
-
-
 </script>
 
 <!-- AngularJS Application Scripts -->
-<script src="<?= asset('assets/app/dashboardApp.js') ?>"></script>
-<script src="<?= asset('assets/app/controllers/dashboard.js') ?>"></script>
+<script src="<?= asset('assets/app/adminApp.js') ?>"></script>
+<script src="<?= asset('assets/app/controllers/adminAppointments.js') ?>"></script>
 
 
 <script type="text/javascript">

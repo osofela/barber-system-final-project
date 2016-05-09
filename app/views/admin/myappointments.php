@@ -1,4 +1,5 @@
-<?php include_once 'layouts/master.php';?>
+<?php include_once 'layouts/my_appointments_master.php';?>
+
 
 <!--<div class="col-md-3">-->
 <!--    <input ng-model="searchText" class="form-control" type="search" placeholder="Search">-->
@@ -7,12 +8,12 @@
 
     <div class="page-container">
         <div class="page-sidebar-wrapper">
-            <?php include_once 'layouts/sidebar.php';?>
+            <?php include_once 'layouts/my_appointments_sidebar.php';?>
         </div>
         <div class="page-content-wrapper">
             <div class="page-content">
                 <div class="page-head">
-                    <h1>Appointments</h1>
+                    <h1>My Appointments</h1>
                 </div>
 
                 <div class="row">
@@ -22,7 +23,7 @@
                             <div class="portlet-title">
                                 <div class="caption caption-md">
                                     <i class="icon-bar-chart theme-font-color hide"></i>
-                                    <span class="caption-subject theme-font-color bold uppercase">All Appointments</span>
+                                    <span class="caption-subject theme-font-color bold uppercase">Your Appointments</span>
                                 </div>
                             </div>
 
