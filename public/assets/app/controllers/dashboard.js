@@ -1,5 +1,11 @@
-app.controller('dashboardController', function()
+app.controller('dashboardController', function($http,$scope,API_URL)
 {
+
+    //get logged in user
+    $http.get(API_URL + "user")
+        .success(function(response) {
+            $scope.loggedInUser = response;
+        });
 
     var visitors = [
         ['10/2015', 632],

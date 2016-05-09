@@ -94,6 +94,26 @@ class AppointmentsController extends ApiController {
         // identify the current request as appointment.
         $mp->identify($appointment->appointment_id);
 
+        $barber = $appointment->barber;
+        $mp->people->set($barber->user_id, array(
+            '$first_name'       =>  $barber->first_name,
+            '$last_name'        =>  $barber->last_name,
+            '$email'            =>  $barber->email,
+            '$telephone'        => $barber->telephone,
+            '$role'             => $barber->role
+        ));
+
+        $client= $appointment->client;
+        $mp->people->set($client->user_id, array(
+            '$first_name'       =>  $client->first_name,
+            '$last_name'        =>  $client->last_name,
+            '$email'            =>  $client->email,
+            '$telephone'        => $client->telephone,
+            '$role'             => $client->role
+        ));
+
+
+
         // track an event associated to user.
         $mp->track("Appointment Added", array("Barber" => $appointment->barber->first_name . " " . $appointment->barber->last_name,
             "Client" => $appointment->client->first_name . " " . $appointment->client->last_name,
@@ -187,6 +207,17 @@ class AppointmentsController extends ApiController {
         $appointment = Appointment::findOrFail($id);
 
         $appointment->delete();
+
+        $mp = Mixpanel::getInstance("687a1651f84c817428a1d5b57480f371");
+
+        // identify the current request as user.
+        $mp->identify($appointment->appointment_id);
+
+        // track an event associated to appointment.
+        $mp->track("Appointment Deleted", array("Barber" => $appointment->barber->first_name . " " . $appointment->barber->last_name,
+            "Client" => $appointment->client->first_name . " " . $appointment->client->last_name,
+            "Deleted By ID" => Auth::user()->user_id,
+            "Deleted By" => Auth::user()->first_name . " " . Auth::user()->last_name));
     }
 
     /**

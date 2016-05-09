@@ -62,6 +62,7 @@ app.controller('usersController', function($scope, $http, API_URL,$alert) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(response) {
             console.log(response);
+            $scope.getBarbers();
             //location.reload();
 
         }).error(function(response) {
@@ -76,8 +77,6 @@ app.controller('usersController', function($scope, $http, API_URL,$alert) {
         var createAlert = $alert({title: 'Barber Saved! ', content: 'Your barber has been saved.', placement: 'top',
             type: 'info',duration: 3,
             container: 'body',animation: 'am-fade-and-slide-top', show: true});
-
-        $scope.getBarbers();
 
 
     };
@@ -95,7 +94,6 @@ app.controller('usersController', function($scope, $http, API_URL,$alert) {
                 var deleteAlert = $alert({title: 'Barber Deleted! ', content: 'Your barber has been deleted.', placement: 'top',
                     type: 'danger',duration: 3,
                     container: 'body',animation: 'am-fade-and-slide-top', show: true});
-
                 $scope.getBarbers();
                 //location.reload();
             }).

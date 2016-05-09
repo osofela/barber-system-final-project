@@ -1,9 +1,5 @@
 <?php include_once 'layouts/users_master.php';?>
 
-
-
-
-
     <div class="page-container">
         <div class="page-sidebar-wrapper">
             <?php include_once 'layouts/users_sidebar.php';?>

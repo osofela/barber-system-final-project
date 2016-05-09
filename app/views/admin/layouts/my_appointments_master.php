@@ -109,7 +109,3 @@ $api_url = Config::get('app.api_url');
 
 </script>
 
-<!--<title>Client Page</title>-->
-<!--<h1>Client Page</h1>-->
-<!--<h3>Hello {{loggedInUser.first_name}} {{loggedInUser.last_name}}</h3>-->
-<!--<a href="/auth/logout">Logout</a>-->
