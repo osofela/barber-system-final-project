@@ -26,8 +26,8 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost:8000',
-	'api_url' => 'http://localhost:8000/api/v1/',
+	'url' => 'http://final-project.dev',
+    'api_url' => 'http://final-project.dev/api/v1/',
 
 	/*
 	|--------------------------------------------------------------------------

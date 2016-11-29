@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'barber_system',
+			'database'  => 'barberq',
 			'username'  => 'root',
 			'password'  => 'password',
 			'charset'   => 'utf8',
