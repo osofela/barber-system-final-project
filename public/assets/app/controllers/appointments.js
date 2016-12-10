@@ -2,9 +2,9 @@ app.controller('appointmentsController', function($rootScope,$scope,$http, API_U
 {
     $scope.showTimes = true;
 
-    var addEventAside = $aside({scope: $scope, templateUrl: 'forms/neweventform.php', 'container':"body" , title: "Create Event" , show: false});
+    var addEventAside = $aside({scope: $scope, templateUrl: 'forms/neweventform', 'container':"body" , title: "Create Event" , show: false});
     // Pre-fetch an external template populated with a custom scope
-    var editEventAside = $aside({scope: $scope, templateUrl: 'forms/eventform.php', 'container':"body" , title: "Edit Event" , show: false});
+    var editEventAside = $aside({scope: $scope, templateUrl: 'forms/eventform', 'container':"body" , title: "Edit Event" , show: false});
 
 
 

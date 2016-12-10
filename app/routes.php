@@ -51,12 +51,12 @@ Route::group(['prefix' => 'api/v1', 'before'=>'auth'],function()
 			return View::make('admin/appointments');
 		});
 
-		Route::get('forms/neweventform.php',function()
+		Route::get('forms/neweventform',function()
 		{
 			return View::make('admin/forms/neweventform');
 		});
 
-		Route::get('forms/eventform.php',function()
+		Route::get('forms/eventform',function()
 		{
 			return View::make('admin/forms/eventform');
 		});
